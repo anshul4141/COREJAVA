@@ -15,7 +15,9 @@ public class Methods {
 	}
 
 	public void greeting(String name) {
+
 		System.out.println("hello " + name);
+
 	}
 
 }

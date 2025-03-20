@@ -16,6 +16,7 @@ public class ReverseNo {
 			temp = temp / 10;
 
 		}
+
 		System.out.println("reverse no of " + i + " is " + rnum);
 
 	}
