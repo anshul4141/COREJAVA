@@ -12,7 +12,7 @@ public class TowDArrayTable {
 
 				table[i][j] = (i + 1) * (j + 1);
 
-				System.out.print(table[i][j] + " \t");
+				System.out.print(table[i][j] + "\t");
 
 			}
 

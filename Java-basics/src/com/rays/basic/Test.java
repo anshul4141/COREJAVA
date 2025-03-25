@@ -7,16 +7,29 @@ public class Test {
 
 	public static void main(String[] args) throws ParseException {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String name = "google";
+		int count = 0;
 
-		Person p = new Person();
+		for (char ch = 'a'; ch <= 'z'; ch++) {
 
-		p.setName("Ram");
-		String name = p.getName();
-		p.setDob(sdf.parse("2001-02-02"));
-		int age = p.ageFind(p.getDob());
+			for (int i = 0; i < name.length(); i++) {
 
-		System.out.println(name + " = " + age);
+				if (ch == name.charAt(i)) {
+
+					count++;
+
+				}
+
+			}
+
+			if (count != 0) {
+
+				System.out.println(ch + " = " + count);
+
+			}
+			count = 0;
+
+		}
 
 	}
 
