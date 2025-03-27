@@ -24,7 +24,7 @@ public class TestPerson {
 		Person p1 = new Person();
 		p1.setName("Shyam");
 		System.out.println("name = " + p1.getName());
-		p1.setAddress("Ujjai");
+		p1.setAddress("Ujjain");
 		System.out.println("address = " + p1.getAddress());
 		p1.setDob(sdf.parse("2003-03-03"));
 		System.out.println(sdf.format(p1.getDob()));
