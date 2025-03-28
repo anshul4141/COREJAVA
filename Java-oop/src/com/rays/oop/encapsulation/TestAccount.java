@@ -15,7 +15,7 @@ public class TestAccount {
 
 		a.deposit(500.0);
 
-		a.withdrawal(2000.0);
+		a.withdrawal(200.0);
 
 	}
 
