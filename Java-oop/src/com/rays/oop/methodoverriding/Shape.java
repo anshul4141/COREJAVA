@@ -1,4 +1,4 @@
-package com.rays.oop.inheritance;
+package com.rays.oop.methodoverriding;
 
 public class Shape {
 
@@ -20,5 +20,9 @@ public class Shape {
 	public void setBorderWidth(int borderWidth) {
 		this.borderWidth = borderWidth;
 	}
-	
+
+	public double area() {
+		return 0.0;
+	}
+
 }

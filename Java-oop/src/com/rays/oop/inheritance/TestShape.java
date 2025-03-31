@@ -17,6 +17,7 @@ public class TestShape {
 		System.out.println("area of circle = " + c.area());
 
 		System.out.println("----rectangle----");
+		
 		Rectangle r = new Rectangle();
 		r.setLenght(2);
 		r.setWidth(2);
