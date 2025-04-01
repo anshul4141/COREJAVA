@@ -1,0 +1,237 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| advance            |
+| advancejava        |
+| demo               |
+| demo_ors           |
+| information_schema |
+| myproject          |
+| mysql              |
+| nsc                |
+| ors_p10            |
+| performance_schema |
+| project            |
+| project04          |
+| project_3          |
+| project_4          |
+| result             |
+| spring_boot_simple |
+| sys                |
++--------------------+
+17 rows in set (0.04 sec)
+
+mysql> create database rays;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| advance            |
+| advancejava        |
+| demo               |
+| demo_ors           |
+| information_schema |
+| myproject          |
+| mysql              |
+| nsc                |
+| ors_p10            |
+| performance_schema |
+| project            |
+| project04          |
+| project_3          |
+| project_4          |
+| rays               |
+| result             |
+| spring_boot_simple |
+| sys                |
++--------------------+
+18 rows in set (0.00 sec)
+
+mysql> use rays;
+Database changed
+mysql> create table employee(id int primary key, name varchar(50), company varchar(50), salary int);
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_rays |
++----------------+
+| employee       |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> insert into employee values(1, 'Ram', 'TCS', 50000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  1 | Ram  | TCS     |  50000 |
++----+------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee values(2, 'Shyam', 'TechM', 32000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
++----+-------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> insert into employee values(3, 'Rahul', 'NCS', 38000),(4, 'Uday', 'Infosys', 75000);
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee
+    -> ;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | NCS     |  38000 |
+|  4 | Uday  | Infosys |  75000 |
++----+-------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> delete from employee where id = 4;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from employee
+    -> ;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | NCS     |  38000 |
++----+-------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employee values(4, 'Uday', 'NCS', 38000),(5, 'Uday', 'Infosys', 75000);
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | NCS     |  38000 |
+|  4 | Uday  | NCS     |  38000 |
+|  5 | Uday  | Infosys |  75000 |
++----+-------+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> delete from employee where name = 'Uday';
+Query OK, 2 rows affected (0.05 sec)
+
+mysql> select * from employee;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | NCS     |  38000 |
++----+-------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update employee set company = 'Wipro' where id = 3;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | Wipro   |  38000 |
++----+-------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update employee set salary = 60000 where id = 3;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | TCS     |  50000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | Wipro   |  60000 |
++----+-------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update employee set company = 'Infosys', salary = 100000 where id = 1;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | Infosys | 100000 |
+|  2 | Shyam | TechM   |  32000 |
+|  3 | Rahul | Wipro   |  60000 |
++----+-------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from employee where id > 1;
+Query OK, 2 rows affected (0.05 sec)
+
+mysql> select * from employee;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  1 | Ram  | Infosys | 100000 |
++----+------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee values(4, 'Uday', 'NCS', 38000),(5, 'Uday', 'Infosys', 75000);
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  1 | Ram  | Infosys | 100000 |
+|  4 | Uday | NCS     |  38000 |
+|  5 | Uday | Infosys |  75000 |
++----+------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where salary > 50000;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  1 | Ram  | Infosys | 100000 |
+|  5 | Uday | Infosys |  75000 |
++----+------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
