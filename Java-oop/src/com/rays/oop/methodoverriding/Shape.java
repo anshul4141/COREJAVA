@@ -4,6 +4,7 @@ public class Shape {
 
 	protected String color;
 	protected int borderWidth;
+	public final double PI = 3.14;
 
 	public String getColor() {
 		return color;

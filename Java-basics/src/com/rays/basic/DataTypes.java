@@ -26,6 +26,9 @@ public class DataTypes {
 		double d = 45.36d;
 		System.out.println("double = " + d);
 
+		String str = "5454sdjskd@#$";
+		System.out.println("String = " + str);
+
 	}
 
 }

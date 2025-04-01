@@ -22,7 +22,6 @@ public class Circle extends Shape {
 
 	@Override
 	public double area() {
-
-		return Math.PI * r * r;
+		return 3.14 * r * r;
 	}
 }
