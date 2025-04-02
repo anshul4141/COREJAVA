@@ -235,3 +235,733 @@ mysql> select * from employee where salary > 50000;
 2 rows in set (0.00 sec)
 
 mysql>
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use result;
+Database changed
+mysql> select * from employee;
+ERROR 1146 (42S02): Table 'result.employee' doesn't exist
+mysql> use rays;
+Database changed
+mysql> select * from employee;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  1 | Ram  | Infosys | 100000 |
+|  4 | Uday | NCS     |  38000 |
+|  5 | Uday | Infosys |  75000 |
++----+------+---------+--------+
+3 rows in set (0.03 sec)
+
+mysql> INSERT INTO employee (id, name, company, salary) VALUES (2, 'Shyam', 'TCS', 85000), (3, 'Mohan', 'Wipro', 92000), (6, 'Amit', 'Tech Mahindra', 68000), (7, 'Sita', 'HCL', 71000), (8, 'Ravi', 'Capgemini', 78000), (9, 'Pooja', 'Infosys', 97000), (10, 'Ramesh', 'TCS', 89000), (11, 'Geeta', 'Wipro', 73000), (12, 'Anil', 'Accenture', 95000), (13, 'Sunil', 'IBM', 87000), (14, 'Alok', 'Deloitte', 91000), (15, 'Neha', 'Capgemini', 76000), (16, 'Kiran', 'Tech Mahindra', 82000), (17, 'Rajesh', 'IBM', 88000), (18, 'Swati', 'HCL', 90000);
+Query OK, 15 rows affected (0.04 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee where salary >= 50000;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+17 rows in set (0.00 sec)
+
+mysql> select * from employee where salary >= 60000;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+17 rows in set (0.00 sec)
+
+mysql> select * from employee where salary >= 80000;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select * from employee where salary <= 80000;
++----+-------+---------------+--------+
+| id | name  | company       | salary |
++----+-------+---------------+--------+
+|  4 | Uday  | NCS           |  38000 |
+|  5 | Uday  | Infosys       |  75000 |
+|  6 | Amit  | Tech Mahindra |  68000 |
+|  7 | Sita  | HCL           |  71000 |
+|  8 | Ravi  | Capgemini     |  78000 |
+| 11 | Geeta | Wipro         |  73000 |
+| 15 | Neha  | Capgemini     |  76000 |
++----+-------+---------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary asc;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  4 | Uday   | NCS           |  38000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+| 11 | Geeta  | Wipro         |  73000 |
+|  5 | Uday   | Infosys       |  75000 |
+| 15 | Neha   | Capgemini     |  76000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+|  2 | Shyam  | TCS           |  85000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 18 | Swati  | HCL           |  90000 |
+| 14 | Alok   | Deloitte      |  91000 |
+|  3 | Mohan  | Wipro         |  92000 |
+| 12 | Anil   | Accenture     |  95000 |
+|  9 | Pooja  | Infosys       |  97000 |
+|  1 | Ram    | Infosys       | 100000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary desc;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 12 | Anil   | Accenture     |  95000 |
+|  3 | Mohan  | Wipro         |  92000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 18 | Swati  | HCL           |  90000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 13 | Sunil  | IBM           |  87000 |
+|  2 | Shyam  | TCS           |  85000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+| 15 | Neha   | Capgemini     |  76000 |
+|  5 | Uday   | Infosys       |  75000 |
+| 11 | Geeta  | Wipro         |  73000 |
+|  7 | Sita   | HCL           |  71000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  4 | Uday   | NCS           |  38000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by id desc;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+| 18 | Swati  | HCL           |  90000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 10 | Ramesh | TCS           |  89000 |
+|  9 | Pooja  | Infosys       |  97000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  7 | Sita   | HCL           |  71000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  4 | Uday   | NCS           |  38000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  1 | Ram    | Infosys       | 100000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by name desc;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
+| 18 | Swati  | HCL           |  90000 |
+| 13 | Sunil  | IBM           |  87000 |
+|  7 | Sita   | HCL           |  71000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+| 10 | Ramesh | TCS           |  89000 |
+|  1 | Ram    | Infosys       | 100000 |
+| 17 | Rajesh | IBM           |  88000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 15 | Neha   | Capgemini     |  76000 |
+|  3 | Mohan  | Wipro         |  92000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+| 14 | Alok   | Deloitte      |  91000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by name asc;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+| 14 | Alok   | Deloitte      |  91000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+|  3 | Mohan  | Wipro         |  92000 |
+| 15 | Neha   | Capgemini     |  76000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 17 | Rajesh | IBM           |  88000 |
+|  1 | Ram    | Infosys       | 100000 |
+| 10 | Ramesh | TCS           |  89000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  7 | Sita   | HCL           |  71000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 18 | Swati  | HCL           |  90000 |
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee limit 0, 4;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  1 | Ram   | Infosys | 100000 |
+|  2 | Shyam | TCS     |  85000 |
+|  3 | Mohan | Wipro   |  92000 |
+|  4 | Uday  | NCS     |  38000 |
++----+-------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee limit 1, 4;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  2 | Shyam | TCS     |  85000 |
+|  3 | Mohan | Wipro   |  92000 |
+|  4 | Uday  | NCS     |  38000 |
+|  5 | Uday  | Infosys |  75000 |
++----+-------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee limit 5, 3;
++----+------+---------------+--------+
+| id | name | company       | salary |
++----+------+---------------+--------+
+|  6 | Amit | Tech Mahindra |  68000 |
+|  7 | Sita | HCL           |  71000 |
+|  8 | Ravi | Capgemini     |  78000 |
++----+------+---------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary desc limit 0,1
+    -> ;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  1 | Ram  | Infosys | 100000 |
++----+------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee order by salary asc limit 0,1;
++----+------+---------+--------+
+| id | name | company | salary |
++----+------+---------+--------+
+|  4 | Uday | NCS     |  38000 |
++----+------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee order by salary desc;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 12 | Anil   | Accenture     |  95000 |
+|  3 | Mohan  | Wipro         |  92000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 18 | Swati  | HCL           |  90000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 13 | Sunil  | IBM           |  87000 |
+|  2 | Shyam  | TCS           |  85000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+| 15 | Neha   | Capgemini     |  76000 |
+|  5 | Uday   | Infosys       |  75000 |
+| 11 | Geeta  | Wipro         |  73000 |
+|  7 | Sita   | HCL           |  71000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  4 | Uday   | NCS           |  38000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary desc limit 1,1;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  9 | Pooja | Infosys |  97000 |
++----+-------+---------+--------+
+1 row in set (0.02 sec)
+
+mysql> select * from employee order by salary asc limit 1,1;
++----+------+---------------+--------+
+| id | name | company       | salary |
++----+------+---------------+--------+
+|  6 | Amit | Tech Mahindra |  68000 |
++----+------+---------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+---------------+--------+
+| id | name   | company       | salary |
++----+--------+---------------+--------+
+|  1 | Ram    | Infosys       | 100000 |
+|  2 | Shyam  | TCS           |  85000 |
+|  3 | Mohan  | Wipro         |  92000 |
+|  4 | Uday   | NCS           |  38000 |
+|  5 | Uday   | Infosys       |  75000 |
+|  6 | Amit   | Tech Mahindra |  68000 |
+|  7 | Sita   | HCL           |  71000 |
+|  8 | Ravi   | Capgemini     |  78000 |
+|  9 | Pooja  | Infosys       |  97000 |
+| 10 | Ramesh | TCS           |  89000 |
+| 11 | Geeta  | Wipro         |  73000 |
+| 12 | Anil   | Accenture     |  95000 |
+| 13 | Sunil  | IBM           |  87000 |
+| 14 | Alok   | Deloitte      |  91000 |
+| 15 | Neha   | Capgemini     |  76000 |
+| 16 | Kiran  | Tech Mahindra |  82000 |
+| 17 | Rajesh | IBM           |  88000 |
+| 18 | Swati  | HCL           |  90000 |
++----+--------+---------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select name from employee;
++--------+
+| name   |
++--------+
+| Ram    |
+| Shyam  |
+| Mohan  |
+| Uday   |
+| Uday   |
+| Amit   |
+| Sita   |
+| Ravi   |
+| Pooja  |
+| Ramesh |
+| Geeta  |
+| Anil   |
+| Sunil  |
+| Alok   |
+| Neha   |
+| Kiran  |
+| Rajesh |
+| Swati  |
++--------+
+18 rows in set (0.00 sec)
+
+mysql> select name, salary from employee;
++--------+--------+
+| name   | salary |
++--------+--------+
+| Ram    | 100000 |
+| Shyam  |  85000 |
+| Mohan  |  92000 |
+| Uday   |  38000 |
+| Uday   |  75000 |
+| Amit   |  68000 |
+| Sita   |  71000 |
+| Ravi   |  78000 |
+| Pooja  |  97000 |
+| Ramesh |  89000 |
+| Geeta  |  73000 |
+| Anil   |  95000 |
+| Sunil  |  87000 |
+| Alok   |  91000 |
+| Neha   |  76000 |
+| Kiran  |  82000 |
+| Rajesh |  88000 |
+| Swati  |  90000 |
++--------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select name, salary from employee where company = 'TCS' ;
++--------+--------+
+| name   | salary |
++--------+--------+
+| Shyam  |  85000 |
+| Ramesh |  89000 |
++--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where company = 'TCS' ;
++----+--------+---------+--------+
+| id | name   | company | salary |
++----+--------+---------+--------+
+|  2 | Shyam  | TCS     |  85000 |
+| 10 | Ramesh | TCS     |  89000 |
++----+--------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where name like 'a%'
+    -> ;
++----+------+---------------+--------+
+| id | name | company       | salary |
++----+------+---------------+--------+
+|  6 | Amit | Tech Mahindra |  68000 |
+| 12 | Anil | Accenture     |  95000 |
+| 14 | Alok | Deloitte      |  91000 |
++----+------+---------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where name like '%a'
+    -> ;
++----+-------+-----------+--------+
+| id | name  | company   | salary |
++----+-------+-----------+--------+
+|  7 | Sita  | HCL       |  71000 |
+|  9 | Pooja | Infosys   |  97000 |
+| 11 | Geeta | Wipro     |  73000 |
+| 15 | Neha  | Capgemini |  76000 |
++----+-------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee where name like 'p%'
+    -> ;
++----+-------+---------+--------+
+| id | name  | company | salary |
++----+-------+---------+--------+
+|  9 | Pooja | Infosys |  97000 |
++----+-------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from employee;
++----------+
+| count(*) |
++----------+
+|       18 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|     1475000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|       38000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|      100000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+-------------------------------------------------------------------------------------
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use rays;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_rays |
++----------------+
+| employee       |
++----------------+
+1 row in set (0.04 sec)
+
+mysql> create table marksheet(rollNo int primary key, name varchar(50), phy int, chm int, maths int);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_rays |
++----------------+
+| employee       |
+| marksheet      |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into marksheet values(100, 'Aastik', 45, 63, 42),(101, 'Sanjana', 65, 71, 85),(102, 'Chtan', 23, 53, 12),(103, 'Amit', 82, 81, 95);
+Query OK, 4 rows affected (0.03 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO marksheet VALUES (104, 'Rohit', 55, 60, 58), (105, 'Neha', 35, 40, 38), (106, 'Vikas', 80, 85, 79), (107, 'Priya', 33, 29, 35), (108, 'Raj', 65, 70, 68), (109, 'Suman', 90, 95, 92), (110, 'Alok', 40, 42, 39), (111, 'Swati', 77, 75, 80), (112, 'Kiran', 50, 55, 53), (113, 'Manish', 25, 20, 30), (114, 'Pooja', 82, 79, 88), (115, 'Aarav', 33, 34, 32), (116, 'Ankita', 91, 94, 89), (117, 'Suraj', 70, 74, 72), (118, 'Deepak', 60, 59, 61), (119, 'Nikita', 45, 48, 42), (120, 'Harshit', 28, 30, 31), (121, 'Kavya', 88, 85, 90), (122, 'Rishi', 36, 39, 35);
+Query OK, 19 rows affected (0.03 sec)
+Records: 19  Duplicates: 0  Warnings: 0
+
+mysql> select * from marksheet;
++--------+---------+------+------+-------+
+| rollNo | name    | phy  | chm  | maths |
++--------+---------+------+------+-------+
+|    100 | Aastik  |   45 |   63 |    42 |
+|    101 | Sanjana |   65 |   71 |    85 |
+|    102 | Chtan   |   23 |   53 |    12 |
+|    103 | Amit    |   82 |   81 |    95 |
+|    104 | Rohit   |   55 |   60 |    58 |
+|    105 | Neha    |   35 |   40 |    38 |
+|    106 | Vikas   |   80 |   85 |    79 |
+|    107 | Priya   |   33 |   29 |    35 |
+|    108 | Raj     |   65 |   70 |    68 |
+|    109 | Suman   |   90 |   95 |    92 |
+|    110 | Alok    |   40 |   42 |    39 |
+|    111 | Swati   |   77 |   75 |    80 |
+|    112 | Kiran   |   50 |   55 |    53 |
+|    113 | Manish  |   25 |   20 |    30 |
+|    114 | Pooja   |   82 |   79 |    88 |
+|    115 | Aarav   |   33 |   34 |    32 |
+|    116 | Ankita  |   91 |   94 |    89 |
+|    117 | Suraj   |   70 |   74 |    72 |
+|    118 | Deepak  |   60 |   59 |    61 |
+|    119 | Nikita  |   45 |   48 |    42 |
+|    120 | Harshit |   28 |   30 |    31 |
+|    121 | Kavya   |   88 |   85 |    90 |
+|    122 | Rishi   |   36 |   39 |    35 |
++--------+---------+------+------+-------+
+23 rows in set (0.02 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+mats)/3) as percentage from marksheet;
+ERROR 1054 (42S22): Unknown column 'mats' in 'field list'
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage from marksheet;
++--------+---------+------+------+-------+-------+------------+
+| rollNo | name    | phy  | chm  | maths | total | percentage |
++--------+---------+------+------+-------+-------+------------+
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 |
+|    104 | Rohit   |   55 |   60 |    58 |   173 |    57.6667 |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 |
+|    109 | Suman   |   90 |   95 |    92 |   277 |    92.3333 |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 |
+|    112 | Kiran   |   50 |   55 |    53 |   158 |    52.6667 |
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 |
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 |
++--------+---------+------+------+-------+-------+------------+
+23 rows in set (0.00 sec)
+
+mysql> select * from marksheet;
++--------+---------+------+------+-------+
+| rollNo | name    | phy  | chm  | maths |
++--------+---------+------+------+-------+
+|    100 | Aastik  |   45 |   63 |    42 |
+|    101 | Sanjana |   65 |   71 |    85 |
+|    102 | Chtan   |   23 |   53 |    12 |
+|    103 | Amit    |   82 |   81 |    95 |
+|    104 | Rohit   |   55 |   60 |    58 |
+|    105 | Neha    |   35 |   40 |    38 |
+|    106 | Vikas   |   80 |   85 |    79 |
+|    107 | Priya   |   33 |   29 |    35 |
+|    108 | Raj     |   65 |   70 |    68 |
+|    109 | Suman   |   90 |   95 |    92 |
+|    110 | Alok    |   40 |   42 |    39 |
+|    111 | Swati   |   77 |   75 |    80 |
+|    112 | Kiran   |   50 |   55 |    53 |
+|    113 | Manish  |   25 |   20 |    30 |
+|    114 | Pooja   |   82 |   79 |    88 |
+|    115 | Aarav   |   33 |   34 |    32 |
+|    116 | Ankita  |   91 |   94 |    89 |
+|    117 | Suraj   |   70 |   74 |    72 |
+|    118 | Deepak  |   60 |   59 |    61 |
+|    119 | Nikita  |   45 |   48 |    42 |
+|    120 | Harshit |   28 |   30 |    31 |
+|    121 | Kavya   |   88 |   85 |    90 |
+|    122 | Rishi   |   36 |   39 |    35 |
++--------+---------+------+------+-------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, () as result from marksheet;
