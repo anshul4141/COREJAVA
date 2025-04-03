@@ -965,3 +965,368 @@ mysql> select * from marksheet;
 23 rows in set (0.00 sec)
 
 mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, () as result from marksheet;
+
+
+--------------------------------------------------------------------------------------------
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use rays
+Database changed
+mysql> select * from marksheet;
++--------+---------+------+------+-------+
+| rollNo | name    | phy  | chm  | maths |
++--------+---------+------+------+-------+
+|    100 | Aastik  |   45 |   63 |    42 |
+|    101 | Sanjana |   65 |   71 |    85 |
+|    102 | Chtan   |   23 |   53 |    12 |
+|    103 | Amit    |   82 |   81 |    95 |
+|    104 | Rohit   |   55 |   60 |    58 |
+|    105 | Neha    |   35 |   40 |    38 |
+|    106 | Vikas   |   80 |   85 |    79 |
+|    107 | Priya   |   33 |   29 |    35 |
+|    108 | Raj     |   65 |   70 |    68 |
+|    109 | Suman   |   90 |   95 |    92 |
+|    110 | Alok    |   40 |   42 |    39 |
+|    111 | Swati   |   77 |   75 |    80 |
+|    112 | Kiran   |   50 |   55 |    53 |
+|    113 | Manish  |   25 |   20 |    30 |
+|    114 | Pooja   |   82 |   79 |    88 |
+|    115 | Aarav   |   33 |   34 |    32 |
+|    116 | Ankita  |   91 |   94 |    89 |
+|    117 | Suraj   |   70 |   74 |    72 |
+|    118 | Deepak  |   60 |   59 |    61 |
+|    119 | Nikita  |   45 |   48 |    42 |
+|    120 | Harshit |   28 |   30 |    31 |
+|    121 | Kavya   |   88 |   85 |    90 |
+|    122 | Rishi   |   36 |   39 |    35 |
++--------+---------+------+------+-------+
+23 rows in set (0.01 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chem >= 33 and maths >=33, 'pass', 'fail') as result from marksheet;
+ERROR 1054 (42S22): Unknown column 'chem' in 'field list'
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and cham >= 33 and maths >=33, 'pass', 'fail') as result from marksheet;
+ERROR 1054 (42S22): Unknown column 'cham' in 'field list'
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet;
++--------+---------+------+------+-------+-------+------------+--------+
+| rollNo | name    | phy  | chm  | maths | total | percentage | result |
++--------+---------+------+------+-------+-------+------------+--------+
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 | pass   |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 | pass   |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 | fail   |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 | pass   |
+|    104 | Rohit   |   55 |   60 |    58 |   173 |    57.6667 | pass   |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 | pass   |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 | pass   |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 | fail   |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 | pass   |
+|    109 | Suman   |   90 |   95 |    92 |   277 |    92.3333 | pass   |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 | pass   |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 | pass   |
+|    112 | Kiran   |   50 |   55 |    53 |   158 |    52.6667 | pass   |
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 | fail   |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 | pass   |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 | fail   |
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 | pass   |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 | pass   |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 | pass   |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 | pass   |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 | fail   |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 | pass   |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 | pass   |
++--------+---------+------+------+-------+-------+------------+--------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet order by total asc limit 0,10;
++--------+---------+------+------+-------+-------+------------+--------+
+| rollNo | name    | phy  | chm  | maths | total | percentage | result |
++--------+---------+------+------+-------+-------+------------+--------+
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 | fail   |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 | fail   |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 | fail   |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 | fail   |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 | fail   |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 | pass   |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 | pass   |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 | pass   |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 | pass   |
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 | pass   |
++--------+---------+------+------+-------+-------+------------+--------+
+10 rows in set (0.02 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet order by total asc;
++--------+---------+------+------+-------+-------+------------+--------+
+| rollNo | name    | phy  | chm  | maths | total | percentage | result |
++--------+---------+------+------+-------+-------+------------+--------+
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 | fail   |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 | fail   |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 | fail   |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 | fail   |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 | fail   |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 | pass   |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 | pass   |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 | pass   |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 | pass   |
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 | pass   |
+|    112 | Kiran   |   50 |   55 |    53 |   158 |    52.6667 | pass   |
+|    104 | Rohit   |   55 |   60 |    58 |   173 |    57.6667 | pass   |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 | pass   |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 | pass   |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 | pass   |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 | pass   |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 | pass   |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 | pass   |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 | pass   |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 | pass   |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 | pass   |
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 | pass   |
+|    109 | Suman   |   90 |   95 |    92 |   277 |    92.3333 | pass   |
++--------+---------+------+------+-------+-------+------------+--------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet order by total desc;
++--------+---------+------+------+-------+-------+------------+--------+
+| rollNo | name    | phy  | chm  | maths | total | percentage | result |
++--------+---------+------+------+-------+-------+------------+--------+
+|    109 | Suman   |   90 |   95 |    92 |   277 |    92.3333 | pass   |
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 | pass   |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 | pass   |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 | pass   |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 | pass   |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 | pass   |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 | pass   |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 | pass   |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 | pass   |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 | pass   |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 | pass   |
+|    104 | Rohit   |   55 |   60 |    58 |   173 |    57.6667 | pass   |
+|    112 | Kiran   |   50 |   55 |    53 |   158 |    52.6667 | pass   |
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 | pass   |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 | pass   |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 | pass   |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 | pass   |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 | pass   |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 | fail   |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 | fail   |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 | fail   |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 | fail   |
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 | fail   |
++--------+---------+------+------+-------+-------+------------+--------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet where result = 'fail';
+ERROR 1054 (42S22): Unknown column 'result' in 'where clause'
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet where result = 'fail;
+    '> ^C
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet where result = fail;
+ERROR 1054 (42S22): Unknown column 'result' in 'where clause'
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet order by total desc;
++--------+---------+------+------+-------+-------+------------+--------+
+| rollNo | name    | phy  | chm  | maths | total | percentage | result |
++--------+---------+------+------+-------+-------+------------+--------+
+|    109 | Suman   |   90 |   95 |    92 |   277 |    92.3333 | pass   |
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 | pass   |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 | pass   |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 | pass   |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 | pass   |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 | pass   |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 | pass   |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 | pass   |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 | pass   |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 | pass   |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 | pass   |
+|    104 | Rohit   |   55 |   60 |    58 |   173 |    57.6667 | pass   |
+|    112 | Kiran   |   50 |   55 |    53 |   158 |    52.6667 | pass   |
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 | pass   |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 | pass   |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 | pass   |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 | pass   |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 | pass   |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 | fail   |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 | fail   |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 | fail   |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 | fail   |
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 | fail   |
++--------+---------+------+------+-------+-------+------------+--------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet where result is 'fail';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''fail'' at line 1
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet where result is fail;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fail' at line 1
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet order by total desc;
++--------+---------+------+------+-------+-------+------------+--------+
+| rollNo | name    | phy  | chm  | maths | total | percentage | result |
++--------+---------+------+------+-------+-------+------------+--------+
+|    109 | Suman   |   90 |   95 |    92 |   277 |    92.3333 | pass   |
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 | pass   |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 | pass   |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 | pass   |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 | pass   |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 | pass   |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 | pass   |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 | pass   |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 | pass   |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 | pass   |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 | pass   |
+|    104 | Rohit   |   55 |   60 |    58 |   173 |    57.6667 | pass   |
+|    112 | Kiran   |   50 |   55 |    53 |   158 |    52.6667 | pass   |
+|    100 | Aastik  |   45 |   63 |    42 |   150 |    50.0000 | pass   |
+|    119 | Nikita  |   45 |   48 |    42 |   135 |    45.0000 | pass   |
+|    110 | Alok    |   40 |   42 |    39 |   121 |    40.3333 | pass   |
+|    105 | Neha    |   35 |   40 |    38 |   113 |    37.6667 | pass   |
+|    122 | Rishi   |   36 |   39 |    35 |   110 |    36.6667 | pass   |
+|    115 | Aarav   |   33 |   34 |    32 |    99 |    33.0000 | fail   |
+|    107 | Priya   |   33 |   29 |    35 |    97 |    32.3333 | fail   |
+|    120 | Harshit |   28 |   30 |    31 |    89 |    29.6667 | fail   |
+|    102 | Chtan   |   23 |   53 |    12 |    88 |    29.3333 | fail   |
+|    113 | Manish  |   25 |   20 |    30 |    75 |    25.0000 | fail   |
++--------+---------+------+------+-------+-------+------------+--------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, if(phy >= 33 and chm >= 33 and maths >=33, 'pass', 'fail') as result from marksheet order by total desc limit 0, 4;
++--------+--------+------+------+-------+-------+------------+--------+
+| rollNo | name   | phy  | chm  | maths | total | percentage | result |
++--------+--------+------+------+-------+-------+------------+--------+
+|    109 | Suman  |   90 |   95 |    92 |   277 |    92.3333 | pass   |
+|    116 | Ankita |   91 |   94 |    89 |   274 |    91.3333 | pass   |
+|    121 | Kavya  |   88 |   85 |    90 |   263 |    87.6667 | pass   |
+|    103 | Amit   |   82 |   81 |    95 |   258 |    86.0000 | pass   |
++--------+--------+------+------+-------+-------+------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage, from marksheet order by total desc limit 0, 4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from marksheet order by total desc limit 0, 4' at line 1
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage from marksheet order by total desc limit 0, 4;
++--------+--------+------+------+-------+-------+------------+
+| rollNo | name   | phy  | chm  | maths | total | percentage |
++--------+--------+------+------+-------+-------+------------+
+|    109 | Suman  |   90 |   95 |    92 |   277 |    92.3333 |
+|    116 | Ankita |   91 |   94 |    89 |   274 |    91.3333 |
+|    121 | Kavya  |   88 |   85 |    90 |   263 |    87.6667 |
+|    103 | Amit   |   82 |   81 |    95 |   258 |    86.0000 |
++--------+--------+------+------+-------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from marksheet;
++--------+---------+------+------+-------+
+| rollNo | name    | phy  | chm  | maths |
++--------+---------+------+------+-------+
+|    100 | Aastik  |   45 |   63 |    42 |
+|    101 | Sanjana |   65 |   71 |    85 |
+|    102 | Chtan   |   23 |   53 |    12 |
+|    103 | Amit    |   82 |   81 |    95 |
+|    104 | Rohit   |   55 |   60 |    58 |
+|    105 | Neha    |   35 |   40 |    38 |
+|    106 | Vikas   |   80 |   85 |    79 |
+|    107 | Priya   |   33 |   29 |    35 |
+|    108 | Raj     |   65 |   70 |    68 |
+|    109 | Suman   |   90 |   95 |    92 |
+|    110 | Alok    |   40 |   42 |    39 |
+|    111 | Swati   |   77 |   75 |    80 |
+|    112 | Kiran   |   50 |   55 |    53 |
+|    113 | Manish  |   25 |   20 |    30 |
+|    114 | Pooja   |   82 |   79 |    88 |
+|    115 | Aarav   |   33 |   34 |    32 |
+|    116 | Ankita  |   91 |   94 |    89 |
+|    117 | Suraj   |   70 |   74 |    72 |
+|    118 | Deepak  |   60 |   59 |    61 |
+|    119 | Nikita  |   45 |   48 |    42 |
+|    120 | Harshit |   28 |   30 |    31 |
+|    121 | Kavya   |   88 |   85 |    90 |
+|    122 | Rishi   |   36 |   39 |    35 |
++--------+---------+------+------+-------+
+23 rows in set (0.00 sec)
+
+mysql> update marksheet set phy = 20, chm = 100, maths = 100 where rollNo = 109;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from marksheet;
++--------+---------+------+------+-------+
+| rollNo | name    | phy  | chm  | maths |
++--------+---------+------+------+-------+
+|    100 | Aastik  |   45 |   63 |    42 |
+|    101 | Sanjana |   65 |   71 |    85 |
+|    102 | Chtan   |   23 |   53 |    12 |
+|    103 | Amit    |   82 |   81 |    95 |
+|    104 | Rohit   |   55 |   60 |    58 |
+|    105 | Neha    |   35 |   40 |    38 |
+|    106 | Vikas   |   80 |   85 |    79 |
+|    107 | Priya   |   33 |   29 |    35 |
+|    108 | Raj     |   65 |   70 |    68 |
+|    109 | Suman   |   20 |  100 |   100 |
+|    110 | Alok    |   40 |   42 |    39 |
+|    111 | Swati   |   77 |   75 |    80 |
+|    112 | Kiran   |   50 |   55 |    53 |
+|    113 | Manish  |   25 |   20 |    30 |
+|    114 | Pooja   |   82 |   79 |    88 |
+|    115 | Aarav   |   33 |   34 |    32 |
+|    116 | Ankita  |   91 |   94 |    89 |
+|    117 | Suraj   |   70 |   74 |    72 |
+|    118 | Deepak  |   60 |   59 |    61 |
+|    119 | Nikita  |   45 |   48 |    42 |
+|    120 | Harshit |   28 |   30 |    31 |
+|    121 | Kavya   |   88 |   85 |    90 |
+|    122 | Rishi   |   36 |   39 |    35 |
++--------+---------+------+------+-------+
+23 rows in set (0.00 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage from marksheet order by total desc limit 0, 5;
++--------+--------+------+------+-------+-------+------------+
+| rollNo | name   | phy  | chm  | maths | total | percentage |
++--------+--------+------+------+-------+-------+------------+
+|    116 | Ankita |   91 |   94 |    89 |   274 |    91.3333 |
+|    121 | Kavya  |   88 |   85 |    90 |   263 |    87.6667 |
+|    103 | Amit   |   82 |   81 |    95 |   258 |    86.0000 |
+|    114 | Pooja  |   82 |   79 |    88 |   249 |    83.0000 |
+|    106 | Vikas  |   80 |   85 |    79 |   244 |    81.3333 |
++--------+--------+------+------+-------+-------+------------+
+5 rows in set (0.02 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage from marksheet order by total desc limit 0, 10;
++--------+---------+------+------+-------+-------+------------+
+| rollNo | name    | phy  | chm  | maths | total | percentage |
++--------+---------+------+------+-------+-------+------------+
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 |
+|    109 | Suman   |   20 |  100 |   100 |   220 |    73.3333 |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 |
++--------+---------+------+------+-------+-------+------------+
+10 rows in set (0.02 sec)
+
+mysql> select *, (phy+chm+maths) as total, ((phy+chm+maths)/3) as percentage from marksheet where phy >=33 and chm >= 33 and maths >=33 order by total desc limit 0, 10;
++--------+---------+------+------+-------+-------+------------+
+| rollNo | name    | phy  | chm  | maths | total | percentage |
++--------+---------+------+------+-------+-------+------------+
+|    116 | Ankita  |   91 |   94 |    89 |   274 |    91.3333 |
+|    121 | Kavya   |   88 |   85 |    90 |   263 |    87.6667 |
+|    103 | Amit    |   82 |   81 |    95 |   258 |    86.0000 |
+|    114 | Pooja   |   82 |   79 |    88 |   249 |    83.0000 |
+|    106 | Vikas   |   80 |   85 |    79 |   244 |    81.3333 |
+|    111 | Swati   |   77 |   75 |    80 |   232 |    77.3333 |
+|    101 | Sanjana |   65 |   71 |    85 |   221 |    73.6667 |
+|    117 | Suraj   |   70 |   74 |    72 |   216 |    72.0000 |
+|    108 | Raj     |   65 |   70 |    68 |   203 |    67.6667 |
+|    118 | Deepak  |   60 |   59 |    61 |   180 |    60.0000 |
++--------+---------+------+------+-------+-------+------------+
+10 rows in set (0.00 sec)
+
+mysql>
