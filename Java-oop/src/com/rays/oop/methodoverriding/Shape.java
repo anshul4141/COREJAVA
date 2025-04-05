@@ -1,6 +1,6 @@
 package com.rays.oop.methodoverriding;
 
-public class Shape {
+public abstract class Shape {
 
 	protected String color;
 	protected int borderWidth;
@@ -22,8 +22,6 @@ public class Shape {
 		this.borderWidth = borderWidth;
 	}
 
-	public double area() {
-		return 0.0;
-	}
+	public abstract double area();
 
 }

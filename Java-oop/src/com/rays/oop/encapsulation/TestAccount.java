@@ -13,10 +13,6 @@ public class TestAccount {
 		System.out.println("account type = " + a.getAccountType());
 		System.out.println("current balance = " + a.getBalance());
 
-		a.deposit(500.0);
-
-		a.withdrawal(200.0);
-
 	}
 
 }

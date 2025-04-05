@@ -30,23 +30,4 @@ public class Account {
 		this.balance = balance;
 	}
 
-	// deposit method
-	public void deposit(double amt) {
-		this.balance = this.balance + amt;
-		System.out.println("total balance after deposit = " + this.balance);
-	}
-
-	// withdrawal method
-	public void withdrawal(double amt) {
-
-		if (amt > this.balance) {
-			System.err.println("insufficent fund..");
-		} else {
-			this.balance = this.balance - amt;
-			System.out.println("total balance after withdrawal = " + this.balance);
-
-		}
-
-	}
-
 }
