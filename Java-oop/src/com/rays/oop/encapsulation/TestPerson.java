@@ -18,6 +18,14 @@ public class TestPerson {
 		System.out.println("dob = " + sdf.format(p.getDob()));
 		p.setAddress("indore");
 		System.out.println("address = " + p.getAddress());
+		int age = Person.getAge(sdf.parse(sdf.format(p.getDob())));
+		if (age < Person.AVR_AGE) {
+
+			System.out.println("ram you are not eligible for vot becouse your age = " + age);
+
+		} else {
+			System.out.println("ram you are eligible for vot your age is = " + age);
+		}
 
 		System.out.println("--------------------");
 
