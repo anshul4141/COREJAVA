@@ -10,10 +10,10 @@ public class TestArithmetic {
 		try {
 			int c = b / a;
 			System.out.println("c = " + c);
-		} catch (ArithmeticException e) {
-			System.out.println("excpetion = " + e.getMessage());
+		} catch (NullPointerException e) {
+			System.out.println("exception = " + e.getMessage());
 		} finally {
-			System.out.println("i am always execute");
+			System.out.println("always execute");
 		}
 
 		System.out.println("programe is complited");
