@@ -9,15 +9,28 @@ public class TestUpdate {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conn = null;
 
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		try {
 
-		Statement stmt = conn.createStatement();
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
-		int i = stmt.executeUpdate("update user set dob = '1987-04-30' where id = 1");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
 
-		System.out.println("updated.." + i);
+			conn.setAutoCommit(false);
+
+			Statement stmt = conn.createStatement();
+
+			int i = stmt.executeUpdate("update user set dob = '1987-04-30' where id = 1");
+
+			conn.commit();
+
+			System.out.println("updated.." + i);
+
+		} catch (Exception e) {
+			conn.rollback();
+		}
+
 	}
 
 }

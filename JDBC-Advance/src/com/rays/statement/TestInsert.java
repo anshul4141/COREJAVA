@@ -7,18 +7,42 @@ import java.sql.Statement;
 
 public class TestInsert {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws SQLException {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conn = null;
 
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		try {
 
-		Statement stmt = conn.createStatement();
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
-		int i = stmt.executeUpdate(
-				"insert into user values(2, 'Virat', 'Kohli', 'virat@gmail.com', 'virat123', '1988-11-05')");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
 
-		System.out.println("inserted.. " + i);
+			conn.setAutoCommit(false);
+
+			Statement stmt = conn.createStatement();
+
+			int i = stmt.executeUpdate(
+					"insert into user values(2, 'Ram', 'Sharma', 'ram@gmail.com', 'ram123', '2001-02-02')");
+
+			i = stmt.executeUpdate(
+					"insert into user values(3, 'Pawan', 'Ydav', 'pawan@gmail.com', 'pawan123', '2001-02-02')");
+
+			i = stmt.executeUpdate(
+					"insert into user values(4, 'Pawan', 'Ydav', 'pawan@gmail.com', 'pawan123', '2001-02-02')");
+
+			conn.commit();
+
+			System.out.println("data inserted = " + (i + i + i));
+
+		} catch (Exception e) {
+
+			conn.rollback();
+
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+
+		}
+
 	}
 
 }
