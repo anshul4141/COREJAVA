@@ -41,4 +41,55 @@ public class UserModel {
 
 	}
 
+	public void update(UserBean bean) throws SQLException {
+
+		Connection conn = null;
+
+		try {
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+
+			conn.setAutoCommit(false);
+
+			PreparedStatement pstmt = conn.prepareStatement(
+					"update user set firstName = ?, lastName = ?, login = ?, password = ?, dob = ? where id = ?");
+
+			pstmt.setString(1, bean.getFirstName());
+			pstmt.setString(2, bean.getLastName());
+			pstmt.setString(3, bean.getLogin());
+			pstmt.setString(4, bean.getPassword());
+			pstmt.setDate(5, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setInt(6, bean.getId());
+
+			int i = pstmt.executeUpdate();
+
+			System.out.println("data updated: " + i);
+
+			conn.commit();
+
+		} catch (Exception e) {
+			conn.rollback();
+			e.printStackTrace();
+		}
+
+	}
+
+	public void delete(UserBean bean) throws Exception {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+
+		PreparedStatement pstmt = conn.prepareStatement("delete from user where id = ?");
+
+		pstmt.setInt(1, bean.getId());
+
+		int i = pstmt.executeUpdate();
+
+		System.out.println("data deleted: " + i);
+
+	}
+
 }
