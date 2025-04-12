@@ -10,7 +10,8 @@ public class TestUserModel {
 
 		// testAdd();
 		// testUpdate();
-		testDelete();
+		// testDelete();
+		testAuthenticate();
 	}
 
 	public static void testAdd() throws ParseException, SQLException {
@@ -58,6 +59,25 @@ public class TestUserModel {
 		UserModel model = new UserModel();
 
 		model.delete(bean);
+
+	}
+
+	public static void testAuthenticate() throws Exception {
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+
+		bean = model.authenticate("virat@gmail.com", "virat123");
+
+		if (bean != null) {
+
+			System.out.println("user login successfull");
+			System.out.println(bean.getFirstName());
+			System.out.println(bean.getLastName());
+
+		} else {
+			System.out.println("invalid login Id or passwrd");
+		}
 
 	}
 
