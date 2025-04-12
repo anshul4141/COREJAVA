@@ -1,6 +1,7 @@
 package com.rays.collection.set;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 //1. set does not contain duplicate values
@@ -11,15 +12,22 @@ public class TestSet {
 	public static void main(String[] args) {
 
 		Set s = new HashSet();
-		
+
 		s.add('b');
 		s.add('a');
 		s.add('b');
 		s.add(null);
 		s.add(null);
-		
+
 		System.out.println("set: " + s);
 		System.out.println("size of set: " + s.size());
+
+		Iterator it = s.iterator();
+
+		while (it.hasNext()) {
+			Object o = it.next();
+			System.out.println(o);
+		}
 
 	}
 
