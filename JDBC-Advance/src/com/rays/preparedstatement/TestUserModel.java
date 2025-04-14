@@ -3,6 +3,9 @@ package com.rays.preparedstatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class TestUserModel {
 
@@ -11,7 +14,8 @@ public class TestUserModel {
 		// testAdd();
 		// testUpdate();
 		// testDelete();
-		testAuthenticate();
+		// testAuthenticate();
+		testSearch();
 	}
 
 	public static void testAdd() throws ParseException, SQLException {
@@ -22,7 +26,7 @@ public class TestUserModel {
 		bean.setId(5);
 		bean.setFirstName("Pawan");
 		bean.setLastName("Patidar");
-		bean.setLogin("pawan@gmail.com");
+		bean.setLogin("pawan123@gmail.com");
 		bean.setPassword("pawan123");
 		bean.setDob(sdf.parse("2001-04-23"));
 
@@ -77,6 +81,35 @@ public class TestUserModel {
 
 		} else {
 			System.out.println("invalid login Id or passwrd");
+		}
+
+	}
+
+	public static void testSearch() throws Exception {
+
+		UserBean bean = new UserBean();
+
+		UserModel model = new UserModel();
+
+		List list = new ArrayList();
+
+		// bean.setFirstName("Virat");
+		bean.setLastName("Kohli");
+
+		list = model.search(bean);
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+
+			bean = (UserBean) it.next();
+			System.out.print(bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.println("\t" + bean.getDob());
+
 		}
 
 	}
