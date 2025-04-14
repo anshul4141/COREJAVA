@@ -17,7 +17,17 @@ public class TestStack {
 		}
 
 		System.out.println("stack: " + s);
-		System.out.println(s.peek());
+
+		Stack s1 = new Stack();
+
+		while (!s.isEmpty()) {
+
+			s1.push(s.pop());
+
+		}
+
+		System.out.println("s1: " + s1);
+		System.out.println(s);
 
 	}
 
