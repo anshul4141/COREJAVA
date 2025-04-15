@@ -94,7 +94,7 @@ public class TestUserModel {
 		List list = new ArrayList();
 
 		// bean.setFirstName("Virat");
-		bean.setLastName("Kohli");
+		// bean.setLastName("Kohli");
 
 		list = model.search(bean);
 
