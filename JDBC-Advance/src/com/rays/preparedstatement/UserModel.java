@@ -9,14 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.rays.util.JDBCDataSource;
+
 public class UserModel {
-
-	ResourceBundle rb = ResourceBundle.getBundle("com.rays.bundle.app");
-
-	String url = rb.getString("url");
-	String username = rb.getString("username");
-	String password = rb.getString("password");
-	String driver = rb.getString("driver");
 
 	public void add(UserBean bean) throws SQLException {
 
@@ -24,9 +19,7 @@ public class UserModel {
 
 		try {
 
-			Class.forName(driver);
-
-			conn = DriverManager.getConnection(url, username, password);
+			conn = JDBCDataSource.getConnection();
 
 			conn.setAutoCommit(false);
 
@@ -65,10 +58,8 @@ public class UserModel {
 
 		try {
 
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
-
+			conn = JDBCDataSource.getConnection();
+			
 			conn.setAutoCommit(false);
 
 			PreparedStatement pstmt = conn.prepareStatement(
@@ -206,9 +197,7 @@ public class UserModel {
 
 	public List search(UserBean bean) throws Exception {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		Connection conn = JDBCDataSource.getConnection();
 
 		StringBuffer sql = new StringBuffer("select * from user where 1 = 1");
 
