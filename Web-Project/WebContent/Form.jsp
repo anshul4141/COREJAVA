@@ -8,29 +8,44 @@
 </head>
 <body>
 
-	<form action="">
+	<form action="FormData.jsp" method="post">
+		<center>
+			<table>
+				<tr>
+					<th>First Name</th>
+					<td><input type="text" name="firstName"
+						placeholder="enter first name"></td>
+				</tr>
 
-		<table>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="lastName"
+						placeholder="enter last name"></td>
+				</tr>
 
-			<tr>
-				<th>First Name</th>
-				<td><input type="text" name="firstName"
-					placeholder="enter first name"></td>
-			</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="loginId"
+						placeholder="enter email id"></td>
+				</tr>
 
-			<tr>
-				<th>Last Name</th>
-				<td><input type="text" name="lastName"
-					placeholder="enter last name"></td>
-			</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="password"
+						placeholder="enter password"></td>
+				</tr>
 
-			<tr>
-				<th>Click here</th>
-				<td><input type="submit" value="save"></td>
-			</tr>
+				<tr>
+					<th>DOB</th>
+					<td><input type="date" name="dob"></td>
+				</tr>
 
-		</table>
-
+				<tr>
+					<th>Click here</th>
+					<td><input type="submit" value="save"></td>
+				</tr>
+			</table>
+		</center>
 	</form>
 
 </body>
