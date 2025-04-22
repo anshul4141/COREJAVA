@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>index page</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<br>
-	<br>
-	<br>
-	<br>
-	<h1 align="center">
-		<a href="WelcomeCtl">Welcome to my website</a>
-	</h1>
+	<a href="UserRegistrationCtl">SingUp</a> |
+	<a href="LoginCtl">Login</a>
+	<hr>
 </body>
 </html>
