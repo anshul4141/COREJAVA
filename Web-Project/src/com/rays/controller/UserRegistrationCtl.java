@@ -3,6 +3,7 @@ package com.rays.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,20 +44,25 @@ public class UserRegistrationCtl extends HttpServlet {
 		if (op.equals("SignUp")) {
 
 			try {
-				bean.setId(6);
+				bean.setId(7);
 				bean.setFirstName(firstName);
 				bean.setLastName(lastName);
 				bean.setLogin(loginId);
 				bean.setPassword(password);
 				bean.setDob(sdf.parse(dob));
 				model.add(bean);
+				request.setAttribute("msg", "user register successfull");
 			} catch (Exception e) {
+				request.setAttribute("msg", e.getMessage());
 				e.printStackTrace();
 			}
 
 		} else {
 			System.out.println("uncessfull registration");
 		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
+		rd.forward(request, response);
 
 	}
 

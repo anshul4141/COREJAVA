@@ -13,23 +13,23 @@ import com.rays.util.JDBCDataSource;
 
 public class UserModel {
 
-	public void add(UserBean bean) throws SQLException {
+	public void add(UserBean bean) throws Exception {
 
 		Connection conn = null;
+
+		UserBean existBean = findByLogin(bean.getLogin());
+
+		if (existBean != null) {
+
+			throw new Exception("Login id already exist");
+
+		}
 
 		try {
 
 			conn = JDBCDataSource.getConnection();
 
 			conn.setAutoCommit(false);
-
-			UserBean existBean = findByLogin(bean.getLogin());
-
-			if (existBean != null) {
-
-				throw new Exception("Login id already exist");
-
-			}
 
 			PreparedStatement pstmt = conn.prepareStatement("insert into user values(?,?,?,?,?,?)");
 

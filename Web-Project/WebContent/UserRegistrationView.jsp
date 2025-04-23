@@ -10,6 +10,18 @@
 	<%@ include file="Header.jsp"%>
 	<h1 align="center">User Registration</h1>
 
+	<%
+		String msg = (String) request.getAttribute("msg");
+	%>
+
+	<%
+		if (msg != null) {
+	%>
+	<h3 align="center"><%=msg%></h3>
+	<%
+		}
+	%>
+
 	<form action="UserRegistrationCtl" method="post">
 		<center>
 			<table>
