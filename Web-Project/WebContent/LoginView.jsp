@@ -10,11 +10,23 @@
 	<%@ include file="Header.jsp"%>
 	<h1 align="center">Login</h1>
 
+	<%
+		String msg = (String) request.getAttribute("msg");
+	%>
+
+	<%
+		if (msg != null) {
+	%>
+	<h3 align="center"><%=msg %></h3>
+	<%
+		}
+	%>
+
 	<form action="LoginCtl" method="post">
 		<center>
 			<table>
 				<tr>
-					<th>Email</th>
+					<th>Login</th>
 					<td><input type="email" name="loginId"
 						placeholder="enter email id"></td>
 				</tr>
