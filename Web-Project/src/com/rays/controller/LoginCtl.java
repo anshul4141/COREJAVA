@@ -25,7 +25,7 @@ public class LoginCtl extends HttpServlet {
 		if (op != null && op.equals("logout")) {
 
 			HttpSession session = request.getSession();
-			session.invalidate(); //destroye
+			session.invalidate(); // destroye
 			request.setAttribute("msg", "user logout successfully");
 
 		}
@@ -43,9 +43,12 @@ public class LoginCtl extends HttpServlet {
 		UserModel model = new UserModel();
 
 		String op = request.getParameter("operation");
+		System.out.println("op: " + op);
 
 		String login = request.getParameter("loginId");
+		System.out.println("login: " + login);
 		String password = request.getParameter("password");
+		System.out.println("password: " + password);
 
 		HttpSession session = request.getSession();
 
