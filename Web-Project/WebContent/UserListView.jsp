@@ -26,6 +26,15 @@
 			}
 		%>
 
+		<table>
+			<tr>
+				<td><input type="text" name="firstName"
+					placeholder="search by firstName"> &nbsp; <input
+					type="text" name="lastName" placeholder="search by lastName">
+					&nbsp; <input type="submit" name="operation" value="search"></td>
+			</tr>
+		</table>
+		<br>
 		<center>
 			<table border="1px" width="100%">
 
@@ -36,6 +45,7 @@
 					<th>Last Name</th>
 					<th>LoginId</th>
 					<th>DOB</th>
+					<th>Edit</th>
 				</tr>
 
 				<%
@@ -52,6 +62,7 @@
 					<td><%=bean.getLastName()%></td>
 					<td><%=bean.getLogin()%></td>
 					<td><%=bean.getDob()%></td>
+					<td><a href="UserCtl?id=<%=bean.getId()%>">edit</a></td>
 				</tr>
 				<%
 					}
