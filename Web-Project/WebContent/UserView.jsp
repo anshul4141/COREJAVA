@@ -36,7 +36,7 @@
 		}
 	%>
 
-	<form action="UserCtl" method="post">
+	<form action="UserCtl.do" method="post">
 		<input type="hidden" name="id"
 			value="<%=bean != null ? bean.getId() : ""%>">
 		<center>
