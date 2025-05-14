@@ -4,7 +4,7 @@ public class TestLembdaExpression {
 
 	public static void main(String[] args) {
 
-		TestFunctionalInterface f = (a, b) -> {
+		HelloFunctionalInterface f = (a, b) -> {
 			System.out.println("sum = " + (a + b));
 		};
 		
@@ -12,7 +12,7 @@ public class TestLembdaExpression {
 		int b = 10;
 		f.sum(a, b);
 		f.m1();
-		TestFunctionalInterface.m2();
+		HelloFunctionalInterface.m2();
 
 	}
 
