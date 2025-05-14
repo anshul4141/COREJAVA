@@ -1,7 +1,7 @@
 package com.rays.java8;
 
 @FunctionalInterface
-public interface TestFunctionalInterface {
+public interface HelloFunctionalInterface {
 
 	public void sum(int a, int b);
 
