@@ -133,3 +133,262 @@ mysql> select * from employee;
 3 rows in set (0.00 sec)
 
 mysql>
+
+-----------------------------------------------------------------------
+
+mysql> select * from employee;
++----+--------+--------+---------------+
+| id | name   | salary | company       |
++----+--------+--------+---------------+
+|  1 | Ram    |  50000 | TCS           |
+|  2 | Shyam  |  40000 | NCS           |
+|  3 | Pawan  |  35000 | Mtech         |
+|  4 | Amit   |  45000 | Infosys       |
+|  5 | Suresh |  38000 | Wipro         |
+|  6 | Priya  |  52000 | TCS           |
+|  7 | Anjali |  47000 | HCL           |
+|  8 | Ravi   |  43000 | Tech Mahindra |
+|  9 | Kiran  |  39000 | Capgemini     |
+| 10 | Meena  |  41000 | Accenture     |
+| 11 | Vikram |  60000 | Infosys       |
+| 12 | Pooja  |  44000 | HCL           |
+| 13 | Raj    |  55000 | TCS           |
+| 14 | Neha   |  47000 | Wipro         |
+| 15 | Arjun  |  50000 | Tech Mahindra |
+| 16 | Sunita |  48000 | Capgemini     |
+| 17 | Deepak |  53000 | NCS           |
+| 18 | Kavita |  46000 | Mtech         |
++----+--------+--------+---------------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee where salary > 50000;
++----+--------+--------+---------+
+| id | name   | salary | company |
++----+--------+--------+---------+
+|  6 | Priya  |  52000 | TCS     |
+| 11 | Vikram |  60000 | Infosys |
+| 13 | Raj    |  55000 | TCS     |
+| 17 | Deepak |  53000 | NCS     |
++----+--------+--------+---------+
+4 rows in set (0.02 sec)
+
+mysql> select name from employee where salary > 50000;
++--------+
+| name   |
++--------+
+| Priya  |
+| Vikram |
+| Raj    |
+| Deepak |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select name, company from employee where salary > 50000;
++--------+---------+
+| name   | company |
++--------+---------+
+| Priya  | TCS     |
+| Vikram | Infosys |
+| Raj    | TCS     |
+| Deepak | NCS     |
++--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select name, company from employee where company =  'TCS';
++-------+---------+
+| name  | company |
++-------+---------+
+| Ram   | TCS     |
+| Priya | TCS     |
+| Raj   | TCS     |
++-------+---------+
+3 rows in set (0.02 sec)
+
+mysql> select name, company from employee where name like 'a%';
++--------+---------------+
+| name   | company       |
++--------+---------------+
+| Amit   | Infosys       |
+| Anjali | HCL           |
+| Arjun  | Tech Mahindra |
++--------+---------------+
+3 rows in set (0.02 sec)
+
+mysql> select name, company from employee where name like '%a';
++--------+-----------+
+| name   | company   |
++--------+-----------+
+| Priya  | TCS       |
+| Meena  | Accenture |
+| Pooja  | HCL       |
+| Neha   | Wipro     |
+| Sunita | Capgemini |
+| Kavita | Mtech     |
++--------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select name, company from employee where name like '%a';
++--------+-----------+
+| name   | company   |
++--------+-----------+
+| Priya  | TCS       |
+| Meena  | Accenture |
+| Pooja  | HCL       |
+| Neha   | Wipro     |
+| Sunita | Capgemini |
+| Kavita | Mtech     |
++--------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select coune(id) from employee;
+ERROR 1305 (42000): FUNCTION vedik.coune does not exist
+mysql> select count(id) from employee;
++-----------+
+| count(id) |
++-----------+
+|        18 |
++-----------+
+1 row in set (0.03 sec)
+
+mysql> select max(id) from employee;
++---------+
+| max(id) |
++---------+
+|      18 |
++---------+
+1 row in set (0.03 sec)
+
+mysql> select min(id) from employee;
++---------+
+| min(id) |
++---------+
+|       1 |
++---------+
+1 row in set (0.03 sec)
+
+mysql> select sum(id) from employee;
++---------+
+| sum(id) |
++---------+
+|     171 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select avg(id) from employee;
++---------+
+| avg(id) |
++---------+
+|  9.5000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|      833000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employee;
++-------------+
+| avg(salary) |
++-------------+
+|  46277.7778 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+--------+---------------+
+| id | name   | salary | company       |
++----+--------+--------+---------------+
+|  1 | Ram    |  50000 | TCS           |
+|  2 | Shyam  |  40000 | NCS           |
+|  3 | Pawan  |  35000 | Mtech         |
+|  4 | Amit   |  45000 | Infosys       |
+|  5 | Suresh |  38000 | Wipro         |
+|  6 | Priya  |  52000 | TCS           |
+|  7 | Anjali |  47000 | HCL           |
+|  8 | Ravi   |  43000 | Tech Mahindra |
+|  9 | Kiran  |  39000 | Capgemini     |
+| 10 | Meena  |  41000 | Accenture     |
+| 11 | Vikram |  60000 | Infosys       |
+| 12 | Pooja  |  44000 | HCL           |
+| 13 | Raj    |  55000 | TCS           |
+| 14 | Neha   |  47000 | Wipro         |
+| 15 | Arjun  |  50000 | Tech Mahindra |
+| 16 | Sunita |  48000 | Capgemini     |
+| 17 | Deepak |  53000 | NCS           |
+| 18 | Kavita |  46000 | Mtech         |
++----+--------+--------+---------------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary desc;
++----+--------+--------+---------------+
+| id | name   | salary | company       |
++----+--------+--------+---------------+
+| 11 | Vikram |  60000 | Infosys       |
+| 13 | Raj    |  55000 | TCS           |
+| 17 | Deepak |  53000 | NCS           |
+|  6 | Priya  |  52000 | TCS           |
+|  1 | Ram    |  50000 | TCS           |
+| 15 | Arjun  |  50000 | Tech Mahindra |
+| 16 | Sunita |  48000 | Capgemini     |
+|  7 | Anjali |  47000 | HCL           |
+| 14 | Neha   |  47000 | Wipro         |
+| 18 | Kavita |  46000 | Mtech         |
+|  4 | Amit   |  45000 | Infosys       |
+| 12 | Pooja  |  44000 | HCL           |
+|  8 | Ravi   |  43000 | Tech Mahindra |
+| 10 | Meena  |  41000 | Accenture     |
+|  2 | Shyam  |  40000 | NCS           |
+|  9 | Kiran  |  39000 | Capgemini     |
+|  5 | Suresh |  38000 | Wipro         |
+|  3 | Pawan  |  35000 | Mtech         |
++----+--------+--------+---------------+
+18 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary asc;
++----+--------+--------+---------------+
+| id | name   | salary | company       |
++----+--------+--------+---------------+
+|  3 | Pawan  |  35000 | Mtech         |
+|  5 | Suresh |  38000 | Wipro         |
+|  9 | Kiran  |  39000 | Capgemini     |
+|  2 | Shyam  |  40000 | NCS           |
+| 10 | Meena  |  41000 | Accenture     |
+|  8 | Ravi   |  43000 | Tech Mahindra |
+| 12 | Pooja  |  44000 | HCL           |
+|  4 | Amit   |  45000 | Infosys       |
+| 18 | Kavita |  46000 | Mtech         |
+|  7 | Anjali |  47000 | HCL           |
+| 14 | Neha   |  47000 | Wipro         |
+| 16 | Sunita |  48000 | Capgemini     |
+|  1 | Ram    |  50000 | TCS           |
+| 15 | Arjun  |  50000 | Tech Mahindra |
+|  6 | Priya  |  52000 | TCS           |
+| 17 | Deepak |  53000 | NCS           |
+| 13 | Raj    |  55000 | TCS           |
+| 11 | Vikram |  60000 | Infosys       |
++----+--------+--------+---------------+
+18 rows in set (0.00 sec)
+
+mysql> select name from employee where salary = 50000;
++-------+
+| name  |
++-------+
+| Ram   |
+| Arjun |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where salary = 50000;
++----+-------+--------+---------------+
+| id | name  | salary | company       |
++----+-------+--------+---------------+
+|  1 | Ram   |  50000 | TCS           |
+| 15 | Arjun |  50000 | Tech Mahindra |
++----+-------+--------+---------------+
+2 rows in set (0.00 sec)
+
+mysql>
