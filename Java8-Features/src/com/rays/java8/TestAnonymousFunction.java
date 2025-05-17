@@ -4,7 +4,7 @@ public class TestAnonymousFunction {
 	
 	public static void main(String[] args) {
 		
-		TestFunctionalInterface f = new TestFunctionalInterface() {
+		HelloFunctionalInterface f = new HelloFunctionalInterface() {
 			
 			@Override
 			public void sum(int a, int b) {
@@ -17,7 +17,7 @@ public class TestAnonymousFunction {
 		int b = 10;
 		f.sum(a, b);
 		f.m1();
-		TestFunctionalInterface.m2();
+		HelloFunctionalInterface.m2();
 		
 		
 	}
