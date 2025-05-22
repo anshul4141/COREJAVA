@@ -922,3 +922,314 @@ mysql> select * from department;
 4 rows in set (0.00 sec)
 
 mysql>
+
+-------------------------------------------------------------------------
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1931
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use vedik;
+Database changed
+mysql> select * from employee;
++----+--------+--------+---------------+---------+
+| id | name   | salary | company       | dept_id |
++----+--------+--------+---------------+---------+
+|  1 | Ram    |  50000 | TCS           |       2 |
+|  2 | Shyam  |  40000 | NCS           |    NULL |
+|  3 | Pawan  |  35000 | Mtech         |    NULL |
+|  4 | Amit   |  45000 | Infosys       |    NULL |
+|  5 | Suresh |  38000 | Wipro         |    NULL |
+|  6 | Priya  |  52000 | TCS           |       3 |
+|  7 | Anjali |  47000 | HCL           |    NULL |
+|  8 | Ravi   |  43000 | Tech Mahindra |       1 |
+|  9 | Kiran  |  39000 | Capgemini     |    NULL |
+| 10 | Meena  |  41000 | Accenture     |    NULL |
+| 11 | Vikram |  60000 | Infosys       |    NULL |
+| 12 | Pooja  |  44000 | HCL           |    NULL |
+| 13 | Raj    |  55000 | TCS           |    NULL |
+| 14 | Neha   |  47000 | Wipro         |    NULL |
+| 15 | Arjun  |  50000 | Tech Mahindra |    NULL |
+| 16 | Sunita |  48000 | Capgemini     |    NULL |
+| 17 | Deepak |  53000 | NCS           |    NULL |
+| 18 | Kavita |  46000 | Mtech         |    NULL |
++----+--------+--------+---------------+---------+
+18 rows in set (0.01 sec)
+
+mysql> select * from department;
++----+-----------+
+| id | deptName  |
++----+-----------+
+|  1 | HR        |
+|  2 | Manager   |
+|  3 | Developer |
+|  4 | Account   |
++----+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee left join department on department.id = employee.deptId;
+ERROR 1054 (42S22): Unknown column 'employee.deptId' in 'on clause'
+mysql> select * from employee left join department on department.id = employee.dept_Id;
++----+--------+--------+---------------+---------+------+-----------+
+| id | name   | salary | company       | dept_id | id   | deptName  |
++----+--------+--------+---------------+---------+------+-----------+
+|  1 | Ram    |  50000 | TCS           |       2 |    2 | Manager   |
+|  2 | Shyam  |  40000 | NCS           |    NULL | NULL | NULL      |
+|  3 | Pawan  |  35000 | Mtech         |    NULL | NULL | NULL      |
+|  4 | Amit   |  45000 | Infosys       |    NULL | NULL | NULL      |
+|  5 | Suresh |  38000 | Wipro         |    NULL | NULL | NULL      |
+|  6 | Priya  |  52000 | TCS           |       3 |    3 | Developer |
+|  7 | Anjali |  47000 | HCL           |    NULL | NULL | NULL      |
+|  8 | Ravi   |  43000 | Tech Mahindra |       1 |    1 | HR        |
+|  9 | Kiran  |  39000 | Capgemini     |    NULL | NULL | NULL      |
+| 10 | Meena  |  41000 | Accenture     |    NULL | NULL | NULL      |
+| 11 | Vikram |  60000 | Infosys       |    NULL | NULL | NULL      |
+| 12 | Pooja  |  44000 | HCL           |    NULL | NULL | NULL      |
+| 13 | Raj    |  55000 | TCS           |    NULL | NULL | NULL      |
+| 14 | Neha   |  47000 | Wipro         |    NULL | NULL | NULL      |
+| 15 | Arjun  |  50000 | Tech Mahindra |    NULL | NULL | NULL      |
+| 16 | Sunita |  48000 | Capgemini     |    NULL | NULL | NULL      |
+| 17 | Deepak |  53000 | NCS           |    NULL | NULL | NULL      |
+| 18 | Kavita |  46000 | Mtech         |    NULL | NULL | NULL      |
++----+--------+--------+---------------+---------+------+-----------+
+18 rows in set (0.01 sec)
+
+mysql> select * from employee right join department on department.id = employee.dept_Id;
++------+-------+--------+---------------+---------+----+-----------+
+| id   | name  | salary | company       | dept_id | id | deptName  |
++------+-------+--------+---------------+---------+----+-----------+
+|    8 | Ravi  |  43000 | Tech Mahindra |       1 |  1 | HR        |
+|    1 | Ram   |  50000 | TCS           |       2 |  2 | Manager   |
+|    6 | Priya |  52000 | TCS           |       3 |  3 | Developer |
+| NULL | NULL  |   NULL | NULL          |    NULL |  4 | Account   |
++------+-------+--------+---------------+---------+----+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee inner join department on department.id = employee.dept_Id;
++----+-------+--------+---------------+---------+----+-----------+
+| id | name  | salary | company       | dept_id | id | deptName  |
++----+-------+--------+---------------+---------+----+-----------+
+|  8 | Ravi  |  43000 | Tech Mahindra |       1 |  1 | HR        |
+|  1 | Ram   |  50000 | TCS           |       2 |  2 | Manager   |
+|  6 | Priya |  52000 | TCS           |       3 |  3 | Developer |
++----+-------+--------+---------------+---------+----+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from department left join employee on employee.dept_id = department.id;
++----+-----------+------+-------+--------+---------------+---------+
+| id | deptName  | id   | name  | salary | company       | dept_id |
++----+-----------+------+-------+--------+---------------+---------+
+|  1 | HR        |    8 | Ravi  |  43000 | Tech Mahindra |       1 |
+|  2 | Manager   |    1 | Ram   |  50000 | TCS           |       2 |
+|  3 | Developer |    6 | Priya |  52000 | TCS           |       3 |
+|  4 | Account   | NULL | NULL  |   NULL | NULL          |    NULL |
++----+-----------+------+-------+--------+---------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from department right join employee on employee.dept_id = department.id;
++------+-----------+----+--------+--------+---------------+---------+
+| id   | deptName  | id | name   | salary | company       | dept_id |
++------+-----------+----+--------+--------+---------------+---------+
+|    2 | Manager   |  1 | Ram    |  50000 | TCS           |       2 |
+| NULL | NULL      |  2 | Shyam  |  40000 | NCS           |    NULL |
+| NULL | NULL      |  3 | Pawan  |  35000 | Mtech         |    NULL |
+| NULL | NULL      |  4 | Amit   |  45000 | Infosys       |    NULL |
+| NULL | NULL      |  5 | Suresh |  38000 | Wipro         |    NULL |
+|    3 | Developer |  6 | Priya  |  52000 | TCS           |       3 |
+| NULL | NULL      |  7 | Anjali |  47000 | HCL           |    NULL |
+|    1 | HR        |  8 | Ravi   |  43000 | Tech Mahindra |       1 |
+| NULL | NULL      |  9 | Kiran  |  39000 | Capgemini     |    NULL |
+| NULL | NULL      | 10 | Meena  |  41000 | Accenture     |    NULL |
+| NULL | NULL      | 11 | Vikram |  60000 | Infosys       |    NULL |
+| NULL | NULL      | 12 | Pooja  |  44000 | HCL           |    NULL |
+| NULL | NULL      | 13 | Raj    |  55000 | TCS           |    NULL |
+| NULL | NULL      | 14 | Neha   |  47000 | Wipro         |    NULL |
+| NULL | NULL      | 15 | Arjun  |  50000 | Tech Mahindra |    NULL |
+| NULL | NULL      | 16 | Sunita |  48000 | Capgemini     |    NULL |
+| NULL | NULL      | 17 | Deepak |  53000 | NCS           |    NULL |
+| NULL | NULL      | 18 | Kavita |  46000 | Mtech         |    NULL |
++------+-----------+----+--------+--------+---------------+---------+
+18 rows in set (0.00 sec)
+
+mysql> select * from department inner join employee on employee.dept_id = department.id;
++----+-----------+----+-------+--------+---------------+---------+
+| id | deptName  | id | name  | salary | company       | dept_id |
++----+-----------+----+-------+--------+---------------+---------+
+|  1 | HR        |  8 | Ravi  |  43000 | Tech Mahindra |       1 |
+|  2 | Manager   |  1 | Ram   |  50000 | TCS           |       2 |
+|  3 | Developer |  6 | Priya |  52000 | TCS           |       3 |
++----+-----------+----+-------+--------+---------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee left join department on department.id = employee.dept_Id union select * from employee right join department on department.id = employee.dept_Id;
++------+--------+--------+---------------+---------+------+-----------+
+| id   | name   | salary | company       | dept_id | id   | deptName  |
++------+--------+--------+---------------+---------+------+-----------+
+|    1 | Ram    |  50000 | TCS           |       2 |    2 | Manager   |
+|    2 | Shyam  |  40000 | NCS           |    NULL | NULL | NULL      |
+|    3 | Pawan  |  35000 | Mtech         |    NULL | NULL | NULL      |
+|    4 | Amit   |  45000 | Infosys       |    NULL | NULL | NULL      |
+|    5 | Suresh |  38000 | Wipro         |    NULL | NULL | NULL      |
+|    6 | Priya  |  52000 | TCS           |       3 |    3 | Developer |
+|    7 | Anjali |  47000 | HCL           |    NULL | NULL | NULL      |
+|    8 | Ravi   |  43000 | Tech Mahindra |       1 |    1 | HR        |
+|    9 | Kiran  |  39000 | Capgemini     |    NULL | NULL | NULL      |
+|   10 | Meena  |  41000 | Accenture     |    NULL | NULL | NULL      |
+|   11 | Vikram |  60000 | Infosys       |    NULL | NULL | NULL      |
+|   12 | Pooja  |  44000 | HCL           |    NULL | NULL | NULL      |
+|   13 | Raj    |  55000 | TCS           |    NULL | NULL | NULL      |
+|   14 | Neha   |  47000 | Wipro         |    NULL | NULL | NULL      |
+|   15 | Arjun  |  50000 | Tech Mahindra |    NULL | NULL | NULL      |
+|   16 | Sunita |  48000 | Capgemini     |    NULL | NULL | NULL      |
+|   17 | Deepak |  53000 | NCS           |    NULL | NULL | NULL      |
+|   18 | Kavita |  46000 | Mtech         |    NULL | NULL | NULL      |
+| NULL | NULL   |   NULL | NULL          |    NULL |    4 | Account   |
++------+--------+--------+---------------+---------+------+-----------+
+19 rows in set (0.03 sec)
+
+mysql> select * from employee left join department on department.id = employee.dept_Id where employee.id is null union select * from employee right join department on department.id = employee.dept_Id where department.dept_id is null;
+ERROR 1054 (42S22): Unknown column 'department.dept_id' in 'where clause'
+mysql> select * from employee left join department on department.id = employee.dept_Id where employee.id is null union select * from employee right join department on department.id = employee.dept_Id where department.id is null;
+Empty set (0.00 sec)
+
+mysql> select * from employee left join department on department.id = employee.dept_Id where department.id is null union select * from employee right join department on department.id = employee.dept_Id where employee.dept_id is null;
++------+--------+--------+---------------+---------+------+----------+
+| id   | name   | salary | company       | dept_id | id   | deptName |
++------+--------+--------+---------------+---------+------+----------+
+|    2 | Shyam  |  40000 | NCS           |    NULL | NULL | NULL     |
+|    3 | Pawan  |  35000 | Mtech         |    NULL | NULL | NULL     |
+|    4 | Amit   |  45000 | Infosys       |    NULL | NULL | NULL     |
+|    5 | Suresh |  38000 | Wipro         |    NULL | NULL | NULL     |
+|    7 | Anjali |  47000 | HCL           |    NULL | NULL | NULL     |
+|    9 | Kiran  |  39000 | Capgemini     |    NULL | NULL | NULL     |
+|   10 | Meena  |  41000 | Accenture     |    NULL | NULL | NULL     |
+|   11 | Vikram |  60000 | Infosys       |    NULL | NULL | NULL     |
+|   12 | Pooja  |  44000 | HCL           |    NULL | NULL | NULL     |
+|   13 | Raj    |  55000 | TCS           |    NULL | NULL | NULL     |
+|   14 | Neha   |  47000 | Wipro         |    NULL | NULL | NULL     |
+|   15 | Arjun  |  50000 | Tech Mahindra |    NULL | NULL | NULL     |
+|   16 | Sunita |  48000 | Capgemini     |    NULL | NULL | NULL     |
+|   17 | Deepak |  53000 | NCS           |    NULL | NULL | NULL     |
+|   18 | Kavita |  46000 | Mtech         |    NULL | NULL | NULL     |
+| NULL | NULL   |   NULL | NULL          |    NULL |    4 | Account  |
++------+--------+--------+---------------+---------+------+----------+
+16 rows in set (0.01 sec)
+
+mysql> select salary from employee left join department on department.id = employee.dept_Id where department.id is null union select * from employee right join department on department.id = employee.dept_Id where employee.dept_id is null;
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+mysql> select employee.salary, department.deptName from employee left join department on department.id = employee.dept_Id where department.id is null union select * from employee right join department on department.id = employee.dept_Id where employee.dept_id is null;
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+mysql> select * from employee left join department on department.id = employee.dept_Id where department.id is null union select * from employee right join department on department.id = employee.dept_Id where employee.dept_id is null;
++------+--------+--------+---------------+---------+------+----------+
+| id   | name   | salary | company       | dept_id | id   | deptName |
++------+--------+--------+---------------+---------+------+----------+
+|    2 | Shyam  |  40000 | NCS           |    NULL | NULL | NULL     |
+|    3 | Pawan  |  35000 | Mtech         |    NULL | NULL | NULL     |
+|    4 | Amit   |  45000 | Infosys       |    NULL | NULL | NULL     |
+|    5 | Suresh |  38000 | Wipro         |    NULL | NULL | NULL     |
+|    7 | Anjali |  47000 | HCL           |    NULL | NULL | NULL     |
+|    9 | Kiran  |  39000 | Capgemini     |    NULL | NULL | NULL     |
+|   10 | Meena  |  41000 | Accenture     |    NULL | NULL | NULL     |
+|   11 | Vikram |  60000 | Infosys       |    NULL | NULL | NULL     |
+|   12 | Pooja  |  44000 | HCL           |    NULL | NULL | NULL     |
+|   13 | Raj    |  55000 | TCS           |    NULL | NULL | NULL     |
+|   14 | Neha   |  47000 | Wipro         |    NULL | NULL | NULL     |
+|   15 | Arjun  |  50000 | Tech Mahindra |    NULL | NULL | NULL     |
+|   16 | Sunita |  48000 | Capgemini     |    NULL | NULL | NULL     |
+|   17 | Deepak |  53000 | NCS           |    NULL | NULL | NULL     |
+|   18 | Kavita |  46000 | Mtech         |    NULL | NULL | NULL     |
+| NULL | NULL   |   NULL | NULL          |    NULL |    4 | Account  |
++------+--------+--------+---------------+---------+------+----------+
+16 rows in set (0.00 sec)
+
+mysql> select salary from employee left join department on department.id = employee.dept_Id where department.id is null union select salary from employee right join department on department.id = employee.dept_Id where employee.dept_id is null;
++--------+
+| salary |
++--------+
+|  40000 |
+|  35000 |
+|  45000 |
+|  38000 |
+|  47000 |
+|  39000 |
+|  41000 |
+|  60000 |
+|  44000 |
+|  55000 |
+|  50000 |
+|  48000 |
+|  53000 |
+|  46000 |
+|   NULL |
++--------+
+15 rows in set (0.00 sec)
+
+mysql> select salary, name, deptName from employee left join department on department.id = employee.dept_Id where department.id is null union select salary, name, deptName from employee right join department on department.id = employee.dept_Id where employee.dept_id is null;
++--------+--------+----------+
+| salary | name   | deptName |
++--------+--------+----------+
+|  40000 | Shyam  | NULL     |
+|  35000 | Pawan  | NULL     |
+|  45000 | Amit   | NULL     |
+|  38000 | Suresh | NULL     |
+|  47000 | Anjali | NULL     |
+|  39000 | Kiran  | NULL     |
+|  41000 | Meena  | NULL     |
+|  60000 | Vikram | NULL     |
+|  44000 | Pooja  | NULL     |
+|  55000 | Raj    | NULL     |
+|  47000 | Neha   | NULL     |
+|  50000 | Arjun  | NULL     |
+|  48000 | Sunita | NULL     |
+|  53000 | Deepak | NULL     |
+|  46000 | Kavita | NULL     |
+|   NULL | NULL   | Account  |
++--------+--------+----------+
+16 rows in set (0.00 sec)
+
+mysql> select salary, name, deptName from employee left join department on department.id = employee.dept_Id union select salary, name, deptName from employee right join department on department.id = employee.dept_Id;
++--------+--------+-----------+
+| salary | name   | deptName  |
++--------+--------+-----------+
+|  50000 | Ram    | Manager   |
+|  40000 | Shyam  | NULL      |
+|  35000 | Pawan  | NULL      |
+|  45000 | Amit   | NULL      |
+|  38000 | Suresh | NULL      |
+|  52000 | Priya  | Developer |
+|  47000 | Anjali | NULL      |
+|  43000 | Ravi   | HR        |
+|  39000 | Kiran  | NULL      |
+|  41000 | Meena  | NULL      |
+|  60000 | Vikram | NULL      |
+|  44000 | Pooja  | NULL      |
+|  55000 | Raj    | NULL      |
+|  47000 | Neha   | NULL      |
+|  50000 | Arjun  | NULL      |
+|  48000 | Sunita | NULL      |
+|  53000 | Deepak | NULL      |
+|  46000 | Kavita | NULL      |
+|   NULL | NULL   | Account   |
++--------+--------+-----------+
+19 rows in set (0.00 sec)
+
+mysql> select name, company, salary, deptName from department inner join employee on employee.dept_id = department.id;
++-------+---------------+--------+-----------+
+| name  | company       | salary | deptName  |
++-------+---------------+--------+-----------+
+| Ravi  | Tech Mahindra |  43000 | HR        |
+| Ram   | TCS           |  50000 | Manager   |
+| Priya | TCS           |  52000 | Developer |
++-------+---------------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql>
