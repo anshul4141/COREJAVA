@@ -15,6 +15,8 @@ public class TestCollection {
 		c.add(2.3);
 		c.add(true);
 		c.add("KGF");
+		c.add(null);
+		c.add(null);
 
 		System.out.println("c: " + c);
 		System.out.println("size of c: " + c.size());
