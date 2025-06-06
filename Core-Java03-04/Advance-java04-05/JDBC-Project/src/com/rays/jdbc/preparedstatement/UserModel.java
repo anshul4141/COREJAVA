@@ -34,4 +34,52 @@ public class UserModel {
 
 	}
 
+	public void update(UserBean bean) {
+
+		Connection conn = null;
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+
+			PreparedStatement pstmt = conn.prepareStatement(
+					"update user set firstName = ?, lastName = ?, login = ?, password = ?, dob = ? where id = ?");
+
+			pstmt.setString(1, bean.getFirstName());
+			pstmt.setString(2, bean.getLastName());
+			pstmt.setString(3, bean.getLogin());
+			pstmt.setString(4, bean.getPassword());
+			pstmt.setDate(5, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setInt(6, bean.getId());
+
+			int i = pstmt.executeUpdate();
+			System.out.println("data updated successfully: " + i);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	public void delete(UserBean bean) {
+
+		Connection conn = null;
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+
+			PreparedStatement pstmt = conn.prepareStatement("delete from user where id = ?");
+
+			pstmt.setInt(1, bean.getId());
+
+			int i = pstmt.executeUpdate();
+			System.out.println("data delete successfully: " + i);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }
