@@ -1,28 +1,54 @@
 package com.rays.jdbc.preparedstatement;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.List;
 
 public class TestUserModel {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, ClassNotFoundException, SQLException {
 
-		//testAdd();
-		testUpdate();
-		//testDelete();
+		// testAdd();
+		// testUpdate();
+		// testDelete();
+		testSearch();
+
+	}
+
+	private static void testSearch() throws ClassNotFoundException, SQLException {
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+
+		List list = model.search(bean);
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+			bean = (UserBean) it.next();
+			System.out.print(bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getLogin());
+			System.out.print("\t" + bean.getPassword());
+			System.out.println("\t" + bean.getDob());
+
+		}
 
 	}
 
 	private static void testDelete() {
-		
+
 		UserModel model = new UserModel();
-		
+
 		UserBean bean = new UserBean();
-		
+
 		bean.setId(2);
-		
+
 		model.delete(bean);
-		
+
 	}
 
 	private static void testUpdate() throws ParseException {

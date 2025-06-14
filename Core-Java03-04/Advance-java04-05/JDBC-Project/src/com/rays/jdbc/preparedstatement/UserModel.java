@@ -3,6 +3,10 @@ package com.rays.jdbc.preparedstatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 // add, update, delete, search
 public class UserModel {
@@ -80,6 +84,33 @@ public class UserModel {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public List search(UserBean bean) throws SQLException, ClassNotFoundException {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from user");
+
+		ResultSet rs = pstmt.executeQuery();
+
+		List list = new ArrayList();
+
+		while (rs.next()) {
+			bean = new UserBean();
+			bean.setId(rs.getInt(1));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
+			bean.setLogin(rs.getString(4));
+			bean.setPassword(rs.getString(5));
+			bean.setDob(rs.getDate(6));
+			list.add(bean);
+		}
+
+		return list;
+
 	}
 
 }
