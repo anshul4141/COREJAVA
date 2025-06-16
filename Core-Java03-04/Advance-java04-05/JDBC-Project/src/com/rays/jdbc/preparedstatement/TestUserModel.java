@@ -13,7 +13,36 @@ public class TestUserModel {
 		// testAdd();
 		// testUpdate();
 		// testDelete();
-		testSearch();
+		// testSearch();
+//		testFindByPk();
+		testFindByLogin();
+
+	}
+
+	private static void testFindByLogin() throws ClassNotFoundException, SQLException {
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+
+		bean = model.findByLogin("vedik123@gmail.com");
+		System.out.print(bean.getId());
+		System.out.print("\t" + bean.getFirstName());
+		System.out.print("\t" + bean.getLastName());
+		System.out.print("\t" + bean.getLogin());
+		System.out.print("\t" + bean.getPassword());
+		System.out.println("\t" + bean.getDob());
+	}
+
+	private static void testFindByPk() throws ClassNotFoundException, SQLException {
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+		bean = model.findByPk(3);
+		System.out.print(bean.getId());
+		System.out.print("\t" + bean.getFirstName());
+		System.out.print("\t" + bean.getLastName());
+		System.out.print("\t" + bean.getLogin());
+		System.out.print("\t" + bean.getPassword());
+		System.out.println("\t" + bean.getDob());
 
 	}
 

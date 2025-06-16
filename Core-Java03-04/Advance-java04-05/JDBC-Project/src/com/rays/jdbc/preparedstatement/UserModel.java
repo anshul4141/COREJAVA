@@ -113,4 +113,86 @@ public class UserModel {
 
 	}
 
+	public UserBean findByPk(int id) throws ClassNotFoundException, SQLException {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where id = ?");
+
+		pstmt.setInt(1, id);
+
+		ResultSet rs = pstmt.executeQuery();
+		UserBean bean = null;
+
+		while (rs.next()) {
+			bean = new UserBean();
+			bean.setId(rs.getInt(1));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
+			bean.setLogin(rs.getString(4));
+			bean.setPassword(rs.getString(5));
+			bean.setDob(rs.getDate(6));
+		}
+
+		return bean;
+
+	}
+
+	public UserBean findByLogin(String login) throws ClassNotFoundException, SQLException {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where login = ?");
+
+		pstmt.setString(1, login);
+
+		ResultSet rs = pstmt.executeQuery();
+		UserBean bean = null;
+
+		while (rs.next()) {
+			bean = new UserBean();
+			bean.setId(rs.getInt(1));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
+			bean.setLogin(rs.getString(4));
+			bean.setPassword(rs.getString(5));
+			bean.setDob(rs.getDate(6));
+		}
+
+		return bean;
+
+	}
+
+	public UserBean authenticate(String login, String password) throws ClassNotFoundException, SQLException {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where login = ? and password = ?");
+
+		pstmt.setString(1, login);
+		pstmt.setString(2, password);
+
+		ResultSet rs = pstmt.executeQuery();
+		UserBean bean = null;
+
+		while (rs.next()) {
+			bean = new UserBean();
+			bean.setId(rs.getInt(1));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
+			bean.setLogin(rs.getString(4));
+			bean.setPassword(rs.getString(5));
+			bean.setDob(rs.getDate(6));
+		}
+
+		return bean;
+
+	}
+
 }
