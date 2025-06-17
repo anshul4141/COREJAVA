@@ -7,18 +7,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 // add, update, delete, search
 public class UserModel {
+
+	ResourceBundle rb = ResourceBundle.getBundle("com.rays.bundle.app");
+
+	String url = rb.getString("url");
+	String username = rb.getString("username");
+	String password = rb.getString("password");
+	String driver = rb.getString("driver");
 
 	public void add(UserBean bean) {
 
 		Connection conn = null;
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName(driver);
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+			conn = DriverManager.getConnection(url, username, password);
 
 			PreparedStatement pstmt = conn.prepareStatement("insert into user values(?, ?, ?, ?, ?, ?)");
 
