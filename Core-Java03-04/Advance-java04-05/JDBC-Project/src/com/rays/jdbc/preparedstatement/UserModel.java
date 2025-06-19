@@ -9,24 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.rays.util.JDBCDataSource;
+
 // add, update, delete, search
 public class UserModel {
-
-	ResourceBundle rb = ResourceBundle.getBundle("com.rays.bundle.app");
-
-	String url = rb.getString("url");
-	String username = rb.getString("username");
-	String password = rb.getString("password");
-	String driver = rb.getString("driver");
 
 	public void add(UserBean bean) {
 
 		Connection conn = null;
 
 		try {
-			Class.forName(driver);
-
-			conn = DriverManager.getConnection(url, username, password);
+			conn = JDBCDataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement("insert into user values(?, ?, ?, ?, ?, ?)");
 
@@ -51,9 +44,8 @@ public class UserModel {
 		Connection conn = null;
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vedik", "root", "root");
+			conn = JDBCDataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(
 					"update user set firstName = ?, lastName = ?, login = ?, password = ?, dob = ? where id = ?");
