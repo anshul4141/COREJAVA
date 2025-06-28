@@ -7,18 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="Header.jsp"%>
-
-	<%
-		for (int i = 1; i <= 10; i++) {
-	%>
-	<h1>
-		<%=i%>
-		Hello Java
-	</h1>
-	<%
-		}
-	%>
-
+	<a href="UserRegistrationCtl">SignUp</a>
+	<hr>
 </body>
 </html>
