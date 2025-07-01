@@ -16,7 +16,7 @@
 	<%
 		if (userBean != null) {
 	%>
-	<h3><%="Hi, " + userBean.getFirstName()%></h3>
+	<h3><%="Hi, " + userBean.getFirstName() + " " + userBean.getLogin()%></h3>
 	<%
 		} else {
 	%>
