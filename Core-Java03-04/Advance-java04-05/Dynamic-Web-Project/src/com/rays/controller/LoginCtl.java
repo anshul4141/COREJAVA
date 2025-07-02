@@ -20,6 +20,15 @@ public class LoginCtl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		String op = request.getParameter("operation");
+
+		HttpSession session = request.getSession();
+
+		if (op != null) {
+			session.invalidate();
+		}
+
 		response.sendRedirect("LoginView.jsp");
 	}
 
@@ -51,7 +60,6 @@ public class LoginCtl extends HttpServlet {
 				}
 
 			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
