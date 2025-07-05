@@ -4,31 +4,34 @@ public class TestShape {
 
 	public static void main(String[] args) {
 
-		System.out.println("----circle----");
-
-		Circle c = new Circle();
-		c.setColor("Red");
-		c.setBorderWidth(3);
-		c.setRadius(2);
-
-		System.out.println("color = " + c.getColor());
-		System.out.println("border width = " + c.getBorderWidth());
-		System.out.println("radius = " + c.getRadius());
-		System.out.println("area of circle = " + c.area());
-
 		System.out.println("----rectangle----");
-		
 		Rectangle r = new Rectangle();
-		r.setLenght(2);
-		r.setWidth(2);
-		r.setColor("Blue");
-		r.setBorderWidth(5);
 
-		System.out.println("lenght = " + r.getLenght());
-		System.out.println("width = " + r.getWidth());
-		System.out.println("color = " + r.getColor());
-		System.out.println("border width = " + r.getBorderWidth());
-		System.out.println("area of Rectangle = " + r.area());
+		r.setColor("red");
+		r.setBorderWidth(5);
+		r.setLenght(10);
+		r.setWidht(20);
+
+		System.out.println("color: " + r.getColor());
+		System.out.println("borderWidth: " + r.getBorderWidth());
+		System.out.println("lenght: " + r.getLenght());
+		System.out.println("width: " + r.getWidht());
+		System.out.println("area of rectangle: " + r.area());
+
+		System.out.println("----triangle-----");
+		Triangle t = new Triangle();
+
+		t.setColor("blue");
+		t.setBorderWidth(4);
+		t.setBase(4);
+		t.setHight(4);
+
+		System.out.println("color: " + t.getColor());
+		System.out.println("borderWidth: " + t.getBorderWidth());
+		System.out.println("base: " + t.getBase());
+		System.out.println("hight: " + t.getHight());
+		System.out.println("area of triangle: " + t.area());
+
 	}
 
 }
