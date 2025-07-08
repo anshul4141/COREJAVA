@@ -18,7 +18,7 @@
 	<%
 		if (msg != null) {
 	%>
-	<h3><%=msg%></h3>
+	<h3 align="center"><%=msg%></h3>
 	<%
 		}
 	%>

@@ -29,8 +29,8 @@
 	<%
 		if (userBean != null) {
 	%>
-	<a href="UserCtl">Add User</a> |
-	<a href="UserListCtl">UserList</a> |
+	<a href="UserCtl.do">Add User</a> |
+	<a href="UserListCtl.do">UserList</a> |
 	<a href="LoginCtl?operation=logout">logout</a>
 	<%
 		} else {

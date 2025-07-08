@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="Header.jsp"%>
-	<form action="UserCtl" method="post">
+	<%@ include file="Header.jsp"%>
+	<form action="UserCtl.do" method="post">
 
 		<h1 align="center">Add User</h1>
 		<div align="center">

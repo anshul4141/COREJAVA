@@ -14,13 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 
-@WebServlet("/UserCtl")
+@WebServlet("/UserCtl.do")
 public class UserCtl extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("UserView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
+		rd.forward(request, response);
 	}
 
 	@Override

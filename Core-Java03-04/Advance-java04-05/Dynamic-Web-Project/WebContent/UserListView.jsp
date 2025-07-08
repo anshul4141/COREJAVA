@@ -16,7 +16,7 @@
 		List list = (List) request.getAttribute("list");
 	%>
 
-	<form action="UserListCtl" method="post">
+	<form action="UserListCtl.do" method="post">
 
 		<table border="1px" width="100%">
 
