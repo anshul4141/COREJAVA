@@ -3,15 +3,7 @@ package com.rays.oop.polymorphism;
 public class Rectangle extends Shape {
 
 	private int lenght;
-	private int widht;
-
-	public Rectangle() {
-	}
-
-	public Rectangle(int lenght, int widht) {
-		this.lenght = lenght;
-		this.widht = widht;
-	}
+	private int width;
 
 	public int getLenght() {
 		return lenght;
@@ -21,17 +13,18 @@ public class Rectangle extends Shape {
 		this.lenght = lenght;
 	}
 
-	public int getWidht() {
-		return widht;
+	public int getWidth() {
+		return width;
 	}
 
-	public void setWidht(int widht) {
-		this.widht = widht;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
 	@Override
 	public double area() {
-		return lenght * widht;
+		// TODO Auto-generated method stub
+		return lenght * width;
 	}
 
 }

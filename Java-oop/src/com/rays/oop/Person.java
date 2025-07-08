@@ -1,15 +1,43 @@
 package com.rays.oop;
 
+import java.util.Date;
+
 public class Person {
 
-	public String name;
+	private String name;
+	private Date dob;
+	private String address;
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Date getDob() {
+		return this.dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getAge() {
+		Date now = new Date();
+
+		int age = now.getYear() - getDob().getYear();
+
+		return age;
 	}
 
 }

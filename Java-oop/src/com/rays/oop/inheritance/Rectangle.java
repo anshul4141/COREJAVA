@@ -3,7 +3,7 @@ package com.rays.oop.inheritance;
 public class Rectangle extends Shape {
 
 	private int lenght;
-	private int width;
+	private int widht;
 
 	public int getLenght() {
 		return lenght;
@@ -13,19 +13,16 @@ public class Rectangle extends Shape {
 		this.lenght = lenght;
 	}
 
-	public int getWidth() {
-		return width;
+	public int getWidht() {
+		return widht;
 	}
 
-	public void setWidth(int width) {
-		this.width = width;
+	public void setWidht(int widht) {
+		this.widht = widht;
 	}
 
 	public double area() {
-
-		double area = 0.0;
-		area = lenght * width;
-		return area;
+		return lenght * widht;
 	}
 
 }

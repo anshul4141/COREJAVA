@@ -6,7 +6,7 @@ public class Shape {
 	protected int borderWidth;
 
 	public String getColor() {
-		return color;
+		return this.color;
 	}
 
 	public void setColor(String color) {
@@ -14,11 +14,11 @@ public class Shape {
 	}
 
 	public int getBorderWidth() {
-		return borderWidth;
+		return this.borderWidth;
 	}
 
 	public void setBorderWidth(int borderWidth) {
 		this.borderWidth = borderWidth;
 	}
-	
+
 }
