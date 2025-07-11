@@ -14,6 +14,15 @@
 	<h1 align="center">User List</h1>
 	<%
 		List list = (List) request.getAttribute("list");
+		String msg = (String) request.getAttribute("msg");
+	%>
+
+	<%
+		if (msg != null) {
+	%>
+	<h3 align="center"><%=msg%></h3>
+	<%
+		}
 	%>
 
 	<form action="UserListCtl.do" method="post">
@@ -21,6 +30,7 @@
 		<table border="1px" width="100%">
 
 			<tr>
+				<th>Delete</th>
 				<th>Id</th>
 				<th>FirstName</th>
 				<th>LastName</th>
@@ -34,6 +44,7 @@
 					UserBean bean = (UserBean) it.next();
 			%>
 			<tr align="center">
+				<td><input type="checkbox" name="ids" value="<%=bean.getId()%>"></td>
 				<td><%=bean.getId()%></td>
 				<td><%=bean.getFirstName()%></td>
 				<td><%=bean.getLastName()%></td>
@@ -45,7 +56,11 @@
 			%>
 
 		</table>
-
+		<center>
+			<table align="center">
+				<input type="submit" name="operation" value="delete">
+			</table>
+		</center>
 	</form>
 
 </body>
