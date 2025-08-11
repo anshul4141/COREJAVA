@@ -8,6 +8,8 @@ public class Person {
 	private Date dob;
 	private String address;
 
+	public static final int AVG_AGE = 18;
+
 	public String getName() {
 		return name;
 	}
@@ -30,6 +32,20 @@ public class Person {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public void getAge() {
+		Date now = new Date();
+
+		int age = now.getYear() - dob.getYear();
+
+		if (age >= AVG_AGE && age < 61) {
+			System.out.println("age: " + age);
+			System.out.println("adult");
+		} else if (age > 61) {
+			System.out.println("age: " + age);
+			System.out.println("senior citizen");
+		}
 	}
 
 }

@@ -13,7 +13,8 @@ public class TestPerson {
 
 		p.setName("Ram");
 		p.setAddress("Indore");
-		p.setDob(sdf.parse("2002-01-01"));
+		p.setDob(sdf.parse("1962-01-01"));
+		p.getAge();
 
 		System.out.println("name: " + p.getName());
 		System.out.println("address: " + p.getAddress());
