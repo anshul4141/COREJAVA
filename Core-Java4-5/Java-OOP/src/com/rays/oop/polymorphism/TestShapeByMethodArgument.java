@@ -1,6 +1,6 @@
 package com.rays.oop.polymorphism;
 
-public class TestShapeByArrays {
+public class TestShapeByMethodArgument {
 
 	public static void main(String[] args) {
 
@@ -21,9 +21,8 @@ public class TestShapeByArrays {
 		t.setBase(5);
 		t.setHight(10);
 
-		for (int i = 0; i < s.length; i++) {
-			System.out.println("area: " + s[i].area());
-		}
+		double totalArea = ShapeMethodArgument.getArea(s);
+		System.out.println("total area: " + totalArea);
 
 	}
 
