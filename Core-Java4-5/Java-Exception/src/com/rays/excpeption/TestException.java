@@ -4,16 +4,14 @@ public class TestException {
 
 	public static void main(String[] args) {
 
-		String name = "Ram";
+		String name = null;
 
 		try {
+			System.out.println(name.charAt(3));
 			System.out.println(name.length());
-			System.out.println(name.charAt(2));
-		} catch (NullPointerException e) {
+		} catch (Exception e) {
 			System.out.println("exception: " + e.getMessage());
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("exception1: " + e.getMessage());
-		}
+		} 
 	}
 
 }
