@@ -1,7 +1,7 @@
 package com.rays.collection.list;
 
 import java.util.Stack;
-
+//1.Last In First Out
 public class TestStack {
 
 	public static void main(String[] args) {
