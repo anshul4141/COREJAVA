@@ -1,33 +1,27 @@
 package com.rays.collection.set;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
-//1. set does not contain duplicate values
-//2. set contain only one null values
-//3. order of set is sorting order by default acs
+//1.Set contain only unique value
+//2.Set contain only one null value
+//3.Order of set is sorting order in asc
 public class TestSet {
 
 	public static void main(String[] args) {
 
 		Set s = new HashSet();
 
+		s.add('c');
+		s.add('a');
+		s.add('d');
 		s.add('b');
 		s.add('a');
-		s.add('b');
+		s.add('a');
 		s.add(null);
 		s.add(null);
-
-		System.out.println("set: " + s);
-		System.out.println("size of set: " + s.size());
-
-		Iterator it = s.iterator();
-
-		while (it.hasNext()) {
-			Object o = it.next();
-			System.out.println(o);
-		}
+		
+		System.out.println(s);
 
 	}
 

@@ -1,9 +1,9 @@
-package com.rays.collection;
+package com.rays.collection.iterator;
 
 import java.util.Enumeration;
 import java.util.Vector;
 
-public class TestFailSafe {
+public class TestEnumeration {
 
 	public static void main(String[] args) {
 
@@ -17,11 +17,9 @@ public class TestFailSafe {
 		v.add(null);
 		v.add(null);
 
+		System.out.println(v);
+
 		Enumeration e = v.elements();
-
-		// Fail safe
-		v.add("Shyam");
-
 		while (e.hasMoreElements()) {
 			Object o = e.nextElement();
 			System.out.println(o);
