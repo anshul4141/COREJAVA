@@ -21,7 +21,7 @@ public class StreamHighestSalary {
 		list.stream().distinct().max(Comparator.naturalOrder()).ifPresent(System.out::println);
 
 		System.out.println("---second highes---");
-		list.stream().distinct().sorted(Collections.reverseOrder()).skip(1).limit(1).forEach(System.out::println);
+		list.stream().distinct().sorted(Collections.reverseOrder()).skip(2).limit(1).forEach(System.out::println);
 
 		System.out.println("---bubble short using stream desc order---");
 		list.stream().distinct().sorted(Collections.reverseOrder()).forEach(System.out::println);

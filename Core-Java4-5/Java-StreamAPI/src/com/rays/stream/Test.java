@@ -28,6 +28,8 @@ public class Test {
 		list.stream().filter(e -> e.startsWith("T")).forEach(e -> System.out.println(e));
 		System.out.println("----");
 		list.stream().distinct().limit(3).forEach(e -> System.out.println(e));
+		System.out.println("----");
+		list.stream().distinct().map(e -> e.toUpperCase()).forEach(e -> System.out.print(e + ", "));
 
 	}
 }
