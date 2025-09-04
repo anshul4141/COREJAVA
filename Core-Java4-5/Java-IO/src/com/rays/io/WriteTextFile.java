@@ -9,7 +9,7 @@ public class WriteTextFile {
 
 		FileWriter file = new FileWriter("D://IO//Rays.txt");
 
-		file.write("Hello World\nmy name is ram\nthis is my first programe");
+		file.write("Hello World\nmy name is Ram\nthis is my first programe\n");
 
 		System.out.println("text write successfully");
 

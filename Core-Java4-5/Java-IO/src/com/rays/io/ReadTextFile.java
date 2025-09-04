@@ -10,11 +10,11 @@ public class ReadTextFile {
 		FileReader file = null;
 
 		try {
-			file = new FileReader("D://IO//Hello.txt");
+			file = new FileReader("D://IO//Rays.txt");
 
 			int i = file.read();
 			while (i != -1) {
-				System.out.print((char)i);
+				System.out.print((char) i);
 				i = file.read();
 			}
 
@@ -23,7 +23,5 @@ public class ReadTextFile {
 		} finally {
 			file.close();
 		}
-
 	}
-
 }
