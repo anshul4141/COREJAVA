@@ -22,7 +22,7 @@ public class Triangle extends Shape {
 	}
 
 	public void area() {
-		System.out.println("triangle area");
+		System.out.println((base * hight) / 2.0);
 	}
 
 }

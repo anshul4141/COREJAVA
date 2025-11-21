@@ -13,7 +13,7 @@ public class Circle extends Shape {
 	}
 
 	public void area() {
-		System.out.println("circle area");
+		System.out.println("area of circle: " + (Math.PI * radius * radius));
 	}
 
 }
