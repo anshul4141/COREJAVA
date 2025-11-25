@@ -21,9 +21,20 @@ public class TestPolymorphismByReturnType {
 		t.setBase(4);
 		t.setHight(4);
 
+		getArea(s); // method argument
+
+	}
+
+	public static void getArea(Shape[] s) {
+
+		double area = 0.0;
+
 		for (int i = 0; i < s.length; i++) {
-			s[i].area();
+			System.out.println(s[i].area());
+			area = area + s[i].area();
 		}
+
+		System.out.println("total: " + area);
 
 	}
 

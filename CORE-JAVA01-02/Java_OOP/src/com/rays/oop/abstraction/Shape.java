@@ -1,6 +1,6 @@
-package com.rays.oop.polymorphism;
+package com.rays.oop.abstraction;
 
-public class Shape {
+public abstract class Shape { // Shape is a abstract class
 
 	protected String color;
 	protected int borderWidth;
@@ -21,26 +21,6 @@ public class Shape {
 		this.borderWidth = borderWidth;
 	}
 
-	public double area() {
-		return 0.0;
-	}
-
-	public static Shape getShape(int i) {
-
-		if (i == 1) {
-			return new Circle();
-		}
-
-		if (i == 2) {
-			return new Rectangle();
-		}
-
-		if (i == 3) {
-			return new Triangle();
-		}
-
-		return new Shape();
-
-	}
+	public abstract double area(); // abstract method
 
 }

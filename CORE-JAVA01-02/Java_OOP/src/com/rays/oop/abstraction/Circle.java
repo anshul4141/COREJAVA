@@ -1,6 +1,6 @@
-package com.rays.oop.polymorphism;
+package com.rays.oop.abstraction;
 
-public class Circle extends Shape {
+public class Circle extends Shape { // now Circle is a concrete class
 
 	private int radius;
 
@@ -14,9 +14,7 @@ public class Circle extends Shape {
 
 	@Override
 	public double area() {
-
 		return Math.PI * radius * radius;
-
 	}
 
 }

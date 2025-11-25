@@ -1,4 +1,4 @@
-package com.rays.oop.polymorphism;
+package com.rays.oop.abstraction;
 
 public class Triangle extends Shape {
 
