@@ -13,7 +13,7 @@ public class SwapingTwo {
 		System.out.println("-----------");
 		// swaping
 
-		a = a + b; // a = 15;
+	    a = a + b; // a = 15;
 		b = a - b; // b = 5;
 		a = a - b; // a = 10;
 		
