@@ -2,9 +2,9 @@ package com.rays.collection.sorting;
 
 public class Employee {
 
-	private int id;
-	private String name;
-	private int salary;
+	public int id;
+	public String name;
+	public int salary;
 
 	public Employee(int id, String name, int salary) {
 		this.id = id;
