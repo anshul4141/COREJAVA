@@ -20,9 +20,9 @@ public class Triangle extends Shape {
 	public void setHight(int hight) {
 		this.hight = hight;
 	}
-
+	
 	public void area() {
-		System.out.println((base * hight) / 2.0);
+		System.out.println("area of triangle");
 	}
 
 }

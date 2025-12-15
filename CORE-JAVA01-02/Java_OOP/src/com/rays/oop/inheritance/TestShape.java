@@ -4,30 +4,30 @@ public class TestShape {
 
 	public static void main(String[] args) {
 
-		System.out.println("--------cirlce--------");
+		System.out.println("----circle----");
 		Circle c = new Circle();
 
-		c.setRadius(2);
-		c.setColor("red");
-		c.setBorderWidth(1);
+		c.setColor("Red");
+		c.setBorderWidth(2);
+		c.setRadius(4);
 
-		System.out.println("radius: " + c.getRadius()); // Child property
-		System.out.println("color: " + c.getColor()); // Parent class property
-		System.out.println("borderWidth: " + c.getBorderWidth()); // parent class property
+		System.out.println("color: " + c.getColor());
+		System.out.println("borderWidth: " + c.getBorderWidth());
+		System.out.println("radius: " + c.getRadius());
 		c.area();
-
-		System.out.println("--------rectangle--------");
+		
+		System.out.println("----rectangle----");
 		Rectangle r = new Rectangle();
-
-		r.setLenght(5);
-		r.setWidht(10);
+		
 		r.setColor("blue");
 		r.setBorderWidth(3);
-
-		System.out.println("lenght: " + r.getLenght());
-		System.out.println("width: " + r.getWidht());
+		r.setLength(4);
+		r.setWidth(8);
+		
 		System.out.println("color: " + r.getColor());
 		System.out.println("borderWidth: " + r.getBorderWidth());
+		System.out.println("lenght: " + r.getLength());
+		System.out.println("width: " + r.getWidth());
 		r.area();
 
 	}

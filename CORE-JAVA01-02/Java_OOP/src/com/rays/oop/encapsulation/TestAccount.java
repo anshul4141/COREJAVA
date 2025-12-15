@@ -6,16 +6,31 @@ public class TestAccount {
 
 		Account a1 = new Account();
 
-		a1.setNumber("45858854595855");
-		a1.setAccountType("current");
-		a1.setBalance(1000.00);
+		a1.setNumber("7878585985785");
+		a1.setAccountType("saving");
+		a1.setBalance(100);
 
-		System.out.println("a1 account no: " + a1.getNumber());
-		System.out.println("a1 account type: " + a1.getAccountType());
+		System.out.println("a1 accountNumber: " + a1.getNumber());
+		System.out.println("a1 accountType: " + a1.getAccountType());
 		System.out.println("a1 current balance: " + a1.getBalance());
-		a1.deposit(500.00); // 1500.00
-		a1.withdrawal(200.00); // 1300.00
-		a1.withdrawal(200.00); //
+
+		System.out.println("---------------");
+
+		Account a2 = new Account();
+
+		a2.setAccountType("current");
+		a2.setNumber("121212");
+		a2.setBalance(50);
+
+		System.out.println("a2 accountNumber: " + a2.getNumber());
+		System.out.println("a2 accountType: " + a2.getAccountType());
+		System.out.println("a2 current balance: " + a2.getBalance());
+
+		System.out.println("------");
+		a1.fundTransfer(a2, 50);
+		
+		System.out.println("a1 current balance: " + a1.getBalance());
+		System.out.println("a2 current balance: " + a2.getBalance());
 
 	}
 

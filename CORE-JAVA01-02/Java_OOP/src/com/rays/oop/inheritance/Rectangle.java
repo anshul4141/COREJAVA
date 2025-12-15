@@ -2,27 +2,27 @@ package com.rays.oop.inheritance;
 
 public class Rectangle extends Shape {
 
-	private int lenght;
-	private int widht;
+	private int length;
+	private int width;
 
-	public int getLenght() {
-		return lenght;
+	public int getLength() {
+		return length;
 	}
 
-	public void setLenght(int lenght) {
-		this.lenght = lenght;
+	public void setLength(int length) {
+		this.length = length;
 	}
 
-	public int getWidht() {
-		return widht;
+	public int getWidth() {
+		return width;
 	}
 
-	public void setWidht(int widht) {
-		this.widht = widht;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
 	public void area() {
-		System.out.println("area of rectangle: " + (lenght * widht));
+		System.out.println((length * width) / 2);
 	}
 
 }

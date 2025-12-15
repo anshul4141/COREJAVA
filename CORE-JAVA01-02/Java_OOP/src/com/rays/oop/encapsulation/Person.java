@@ -7,10 +7,10 @@ public class Person {
 	private String name;
 	private Date dob;
 	private String address;
-	public final static int AVG_AGE = 18;
+	public static final int AVG_AGE = 18; // constant attribute
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -18,7 +18,7 @@ public class Person {
 	}
 
 	public Date getDob() {
-		return this.dob;
+		return dob;
 	}
 
 	public void setDob(Date dob) {
@@ -26,21 +26,11 @@ public class Person {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public int getAge(Date dob) {
-
-		Date now = new Date();
-
-		int age = now.getYear() - dob.getYear();
-
-		return age;
-
 	}
 
 }

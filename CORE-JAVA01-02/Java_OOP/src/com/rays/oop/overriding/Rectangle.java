@@ -3,7 +3,7 @@ package com.rays.oop.overriding;
 public class Rectangle extends Shape {
 
 	private int lenght;
-	private int widht;
+	private int width;
 
 	public int getLenght() {
 		return lenght;
@@ -13,17 +13,17 @@ public class Rectangle extends Shape {
 		this.lenght = lenght;
 	}
 
-	public int getWidht() {
-		return widht;
+	public int getWidth() {
+		return width;
 	}
 
-	public void setWidht(int widht) {
-		this.widht = widht;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
 	@Override
 	public void area() {
-		System.out.println("area of rectangle: " + (lenght * widht));
+		System.out.println("area of rectangle");
 	}
 
 }
