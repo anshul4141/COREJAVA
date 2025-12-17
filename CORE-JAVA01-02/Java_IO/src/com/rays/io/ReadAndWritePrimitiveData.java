@@ -12,8 +12,8 @@ public class ReadAndWritePrimitiveData {
 
 		DataOutputStream out = new DataOutputStream(new FileOutputStream("D://IO//Primitive.txt"));
 
-		out.writeInt(0);
-		out.writeBoolean(true);
+		out.writeInt(1);
+		out.writeBoolean(false);
 		out.writeDouble(45.25);
 		out.writeChar('A');
 
@@ -21,7 +21,7 @@ public class ReadAndWritePrimitiveData {
 
 		System.out.println("data added......");
 
-		DataInputStream in = new DataInputStream(new FileInputStream("D://IO//Primitive.dtst"));
+		DataInputStream in = new DataInputStream(new FileInputStream("D://IO//Primitive.txt"));
 
 		System.out.println(in.readInt());
 		System.out.println(in.readBoolean());

@@ -11,7 +11,7 @@ public class TestBufferedWriter {
 
 		file.write("public class Hello {");
 		file.newLine();
-		file.write("  public static void main {");
+		file.write("  public static void main(String[] args) {");
 		file.newLine();
 		file.write("   System.out.println(\"hello world\");");
 		file.newLine();
