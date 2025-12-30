@@ -9,8 +9,10 @@ public class TestPriorityQueue {
 		
 		Queue q = new PriorityQueue();
 		
-		q.add("Ram");
-		q.add(5); // runtime exception ClassCastException
+		q.offer('a');
+		q.offer("Hello");
+		q.offer('b');
+		q.offer('c');
 		
 		System.out.println(q);
 		

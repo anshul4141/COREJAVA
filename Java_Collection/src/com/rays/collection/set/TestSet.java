@@ -3,28 +3,25 @@ package com.rays.collection.set;
 import java.util.HashSet;
 import java.util.Set;
 
-// 1.Set contain only unique elements
-// 2.Set contain only one null value
-// 3.Order of set is not define
+//1. set contain unique elements
+//2. set contain one null element
+//3. order of set does not define
 public class TestSet {
 
 	public static void main(String[] args) {
 
 		Set s = new HashSet();
 
-		s.add(null);
-		s.add(null);
+		s.add('a');
 		s.add('a');
 		s.add('b');
 		s.add('c');
 		s.add('d');
 		s.add('e');
-		s.add('f');
-		s.add('a');
-		s.add('a');
-		s.add('a');
-		
-		System.out.println("set: " + s);
+		s.add(null);
+		s.add(null);
+
+		System.out.println(s);
 
 	}
 
