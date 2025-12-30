@@ -1,19 +1,13 @@
 package com.rays.map;
 
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
-//1. map contain key and value pair
-//2. in map key represent value
-//3. map contain unique key only
-//4. map contain duplicate value
-//5. map contain only one null key
-//6. map contain multiple null value
-public class TestMap {
+public class TestHashTable {
 
 	public static void main(String[] args) {
 
-		Map m = new HashMap();
+		Map m = new Hashtable();
 
 		m.put("one", 1); // one = 1
 		m.put("two", 2); // two = 2
@@ -36,6 +30,7 @@ public class TestMap {
 		System.out.println(m);
 		m.clear();
 		System.out.println(m);
+
 	}
 
 }
