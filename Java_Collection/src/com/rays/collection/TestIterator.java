@@ -4,35 +4,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// Iterator use in most all collection
 public class TestIterator {
 
 	public static void main(String[] args) {
 
 		List list = new ArrayList();
 
-		list.add("Orange");
-		list.add("Mango");
-		list.add("Banana");
-		list.add("Grapes");
-		list.add("Papaya");
+		list.add(0, "Ram");
+		list.add(1, 'a');
+		list.add(2, 2.3);
+		list.add(3, true);
+		list.add(4, 45);
+		list.add(5, "Ram");
+		list.add(6, "Ram");
 
-		System.out.println(list);
+		System.out.println("list: " + list);
 
-		System.out.println("------------");
+		System.out.println("----for each loop----");
 
-		Iterator it = list.iterator(); // create Iterator object
-
-		// list.add("Apple"); // fail-fast ---> ConcurrentModificationException
-
-		while (it.hasNext()) { // hasNext check the next element
-			Object o = it.next(); // next iterate the next element
-			System.out.println(o); // print the next element
-			it.remove(); // remove the elements
+		for (Object o : list) {
+			System.out.println(o);
 		}
 
-		System.out.println("------------");
-		System.out.println(list);
+		System.out.println("----Iterator----");
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+			// it.remove(); // java.lang.IllegalStateException
+			Object o = it.next();
+			System.out.println("elements: " + o);
+			it.remove(); // remove from collection
+		}
+
+		System.out.println("list: " + list);
 
 	}
 

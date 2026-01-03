@@ -2,9 +2,9 @@ package com.rays.collection.sorting;
 
 public class Employee {
 
-	protected int id;
-	protected String name;
-	protected int salary;
+	public int id;
+	public String name;
+	public int salary;
 
 	public Employee(int id, String name, int salary) {
 		this.id = id;
@@ -14,7 +14,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "id: " + id + " name: " + name + " salary: " + salary + "\n";
+		return "id: " + id + " name: " + name + " salary: " + salary;
 	}
 
 }

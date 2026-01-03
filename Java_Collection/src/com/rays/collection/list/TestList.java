@@ -3,39 +3,47 @@ package com.rays.collection.list;
 import java.util.ArrayList;
 import java.util.List;
 
-//1. list contain duplicate elements
-//2. list contain multiple null values
-//3. order of list is natural order
+// 1. List can contain duplicate elements
+// 2. List can contain multiple null values
+// 3. Order of list is natural order
 public class TestList {
 
 	public static void main(String[] args) {
 
 		List list = new ArrayList();
 
-		list.add(0, "Ram");
-		list.add(1, "Ram");
-		list.add(2, "Shyam");
-		list.add(3, null);
-		list.add(4, null);
-		list.add(5, 5.2);
-		list.add(6, 'a');
-		list.add(7, true);
+//		ArrayList list1 = new ArrayList();
 
-		System.out.println(list);
-		System.out.println(list.get(2));
+		list.add(0, "Ram");
+		list.add(1, 'a');
+		list.add(2, 2.3);
+		// list.add(6, "Sita"); index out of bound
+		list.add(3, true);
+		list.add(4, 45);
+		list.add(5, "Ram");
+		list.add(6, "Ram");
+		list.add(6, "Sita");
+
+//		list.add("Ram");
+//		list.add('a');
+//		list.add(2.3);
+//		list.add(true);
+//		list.add(45);
+//		list.add("Ram");
+//		list.add("Ram");
+
+		System.out.println("list: " + list);
 		System.out.println(list.get(7));
-		list.remove(2);
+
+		System.out.println(list.remove(6));
+		System.out.println("list: " + list);
+
+		System.out.println(list.set(0, "Rawan"));
 		System.out.println(list);
-		System.out.println(list.get(2));
-		System.out.println("----------");
-		System.out.println(list.get(1));
+
 		System.out.println(list.indexOf("Ram"));
 		System.out.println(list.lastIndexOf("Ram"));
-		System.out.println("--------");
-		list.set(1, "Rawan");
-		System.out.println(list.get(1));
-		
-		System.out.println(list.subList(1, 8));
+		System.out.println(list.subList(1, 7));
 
 	}
 

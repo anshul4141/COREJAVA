@@ -12,9 +12,9 @@ public class TestStreamOddEven {
 			list.add(i);
 		}
 
-		list.stream().filter(e -> e % 2 != 0).forEach(System.out::println);
+		list.stream().filter(e -> e % 2 != 0).forEach(e -> System.out.println("odd: " + e));
 		System.out.println("------");
-		list.stream().filter(e -> e % 2 == 0).forEach(System.out::println);
+		list.stream().filter(e -> e % 2 == 0).forEach(e -> System.out.println("even: " + e));
 
 	}
 
