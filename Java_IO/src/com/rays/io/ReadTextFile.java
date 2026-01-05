@@ -7,7 +7,7 @@ public class ReadTextFile {
 	public static void main(String[] args) throws Exception {
 
 		// read single character only as int
-		FileReader file = new FileReader("D://IO//Hello.txt");
+		FileReader file = new FileReader("D://IO//Rays.txt");
 
 		int i = file.read();
 
