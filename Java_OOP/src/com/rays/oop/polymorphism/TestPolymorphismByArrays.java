@@ -23,7 +23,7 @@ public class TestPolymorphismByArrays {
 		t.setHight(4);
 
 		for (int i = 0; i < s.length; i++) {
-			s[i].area();
+			System.out.println(s[i].area());
 		}
 
 	}

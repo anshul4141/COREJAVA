@@ -22,7 +22,7 @@ public class Shape {
 	}
 
 	public void area() {
-		System.out.println("area not privede by child class");
+		System.out.println("area from shape class");
 	}
 
 }

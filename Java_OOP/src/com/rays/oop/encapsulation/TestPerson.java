@@ -2,7 +2,6 @@ package com.rays.oop.encapsulation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class TestPerson {
 

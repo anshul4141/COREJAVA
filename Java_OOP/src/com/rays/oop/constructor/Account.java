@@ -6,6 +6,10 @@ public class Account {
 	private String accountType;
 	private double balance;
 
+	public Account() {
+		System.out.println("this is default constructor");
+	}
+
 	public Account(String number, String accountType, double balance) {
 		this.number = number;
 		this.accountType = accountType;
