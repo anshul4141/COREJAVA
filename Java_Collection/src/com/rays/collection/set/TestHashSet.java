@@ -5,7 +5,7 @@ import java.util.Set;
 
 // 1.Set contain only unique elements
 // 2.Set contain only one null value
-// 3.Order of set is not define
+// 3.Order of HashSet is not define
 public class TestSet {
 
 	public static void main(String[] args) {
