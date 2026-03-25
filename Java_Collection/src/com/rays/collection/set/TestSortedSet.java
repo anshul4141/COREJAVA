@@ -3,7 +3,9 @@ package com.rays.collection.set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-// sorted set is order set in asc
+// SortedSet is order set in asc
+// does not contian null value
+// does not contain duplicate value
 public class TestSortedSet {
 
 	public static void main(String[] args) {
