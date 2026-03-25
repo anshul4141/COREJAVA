@@ -4,7 +4,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 // SortedSet is order set in asc
-// does not contian null value
+// does not contain null value
 // does not contain duplicate value
 public class TestSortedSet {
 
