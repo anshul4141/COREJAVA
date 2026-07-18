@@ -20,9 +20,9 @@ public class Shape {
 	public void setBorderWidth(int borderWidth) {
 		this.borderWidth = borderWidth;
 	}
-	
+
 	public void area() {
-		System.out.println();
+		System.out.println("area of shape");
 	}
 
 }
