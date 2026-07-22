@@ -9,7 +9,7 @@ public class TestNullPointerException {
 		try {
 			System.out.println(name.length());
 		} catch (NullPointerException e) {
-//			System.out.println(e.getMessage());
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 
